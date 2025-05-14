@@ -1,14 +1,14 @@
+// ini untuk sidebar
 const hamburger = document.querySelector(".toggle-btn");
-
 hamburger.addEventListener("click", function () {
     document.querySelector("#sidebar").classList.toggle("expand");
 });
 
-
+// ini tabel dari chart.js
 new Chart(document.getElementById("bar-chart-grouped"), {
     type: 'bar',
     data: {
-      labels: ["1900", "1950", "1999", "2050"],
+      labels: ["Januari", "Februari", "Maret", "April"],
       datasets: [
         {
           label: "Donat",
@@ -24,7 +24,7 @@ new Chart(document.getElementById("bar-chart-grouped"), {
     options: {
       title: {
         display: true,
-        text: 'Population growth (millions)'
+        text: 'Donut & Cake Sales Report'
       }
     }
 });

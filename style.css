@@ -24,10 +24,21 @@ body {
     overflow: hidden;
     transition: all 0.25s ease-in-out;
     background-color: #fff;
+    margin-left: 260px;
+}
+
+.object-fit-cover {
+  object-fit: cover;
 }
 
 .content {
-    background-color: #fff;
+    background-color: #FEF6FB;
+}
+
+.logo-img {
+  max-height: 40px;   
+  width: auto;
+  object-fit: contain;
 }
 
 #sidebar {
@@ -37,6 +48,12 @@ body {
     background-color: #D77FA1;
     display: flex;
     flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; /* biar keliatan selayar */
+    overflow-y: auto; /* scroll kalo kontennya panjang */
+    z-index: 1000;
 }
 
 #sidebar.expand {
@@ -47,6 +64,10 @@ body {
 #sidebar:not(.expand) .sidebar-logo,
 #sidebar:not(.expand) a.sidebar-link span {
     display: none;
+}
+
+#sidebar:not(.expand) ~ .main {
+  margin-left: 90px; /* pas sidebar collapse */
 }
 
 a.sidebar-link ion-icon {
@@ -66,7 +87,7 @@ a.sidebar-link ion-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #E6B2C6;
+    background-color: #D77FA1;
 }
 
 .toggle-btn i {
@@ -117,7 +138,7 @@ a.sidebar-link {
 
 a.sidebar-link:hover {
     background-color: #FEF6FB;
-    border-left: 3px solid #E6B2C6;
+    border-left: 7px solid rgb(150, 17, 98);
     color: #D77FA1;
     
 }
@@ -138,7 +159,7 @@ a.sidebar-link:hover span {
     position: absolute;
     top: 0;
     left: 90px;
-    background-color: #fff;
+    background-color: #FEF6FB;
     padding: 0;
     min-width: 15rem;
     display: none;
@@ -226,7 +247,7 @@ a.sidebar-link:hover span {
 .card {
     background-color: #fff;
     transition: .4s;
-    cursor: pointer;
+    /* cursor: pointer; */
     color: #000;
     margin-bottom: 1rem;
     border-color: #D77FA1;
@@ -239,10 +260,16 @@ a.sidebar-link:hover span {
 } */
 
 .card:hover {
-    background-color: #FEF6FB;
+    background-color: #fff;
     color: #000;
+    border-color: rgb(150, 17, 98);
     transform: translateY(-10.5px);
 }
+
+/* .table-hover {
+    background-color: #D6E5FA;
+    color: #000;
+} */
 
 .table>thead tr {
     color: #fff;
@@ -258,10 +285,26 @@ tr.highlight th {
     flex: 11 auto;
 }
 
+.badge-warning {
+  color: #fff;
+  background-color: #ffc927;
+}
+
+.badge-success {
+  color: #fff;
+  background-color: #57B657;
+}
+
+.badge-danger {
+  color: #fff;
+  background-color: #FF4747;
+}
+
 footer {
     background-color: #D6E5FA;
     padding: 1rem .875rem;
 }
+
 
 @media(min-width:768px) {
 
@@ -296,4 +339,5 @@ footer {
     .navbar-expand .navbar-nav .dropdown-menu{
         box-shadow: 0.1rem .2rem rgb(0, 0, 0, .05);
     }
+
 }
