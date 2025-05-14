@@ -16,7 +16,7 @@ new Chart(document.getElementById("bar-chart-grouped"), {
           data: [133,221,783,2478]
         }, {
           label: "Kue",
-          backgroundColor: "#D6E5FA",
+          backgroundColor: "rgb(150, 17, 98)",
           data: [408,547,675,734]
         }
       ]

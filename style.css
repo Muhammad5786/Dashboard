@@ -10,6 +10,7 @@ li {
 
 body {
     font-family: 'Outfit', serif;
+    color: #464d63;
 }
 
 .wrapper {
@@ -248,7 +249,7 @@ a.sidebar-link:hover span {
     background-color: #fff;
     transition: .4s;
     /* cursor: pointer; */
-    color: #000;
+    color: #464d63;
     margin-bottom: 1rem;
     border-color: #D77FA1;
 }
@@ -259,17 +260,38 @@ a.sidebar-link:hover span {
     margin-bottom: .25rem;
 } */
 
-.card:hover {
-    background-color: #fff;
-    color: #000;
-    border-color: rgb(150, 17, 98);
+.card-stat:hover {
+    background-color: #D77FA1;
+    color: #fff;
+    border-color: #D77FA1;
     transform: translateY(-10.5px);
 }
 
-/* .table-hover {
-    background-color: #D6E5FA;
-    color: #000;
-} */
+.card-stat:hover .text-success {
+    background-color: #fff;
+}
+
+.card-stat:hover h2.fw-bold {
+  font-size: 2.5rem; /* Atur sesuai kebutuhan, default h2 ≈ 2rem */
+}
+
+.card-stat:hover p.fw-bold {
+  text-transform: uppercase;
+}
+
+/* Tambahkan transisi agar halus */
+.card-stat h2.fw-bold,
+.card-stat p.fw-bold {
+  transition: all 0.7s ease, color 0.5s;
+}
+
+.badge {
+  transition: background-color 0.8s;
+}
+
+.table-hover {
+    color: #464d63;
+}
 
 .table>thead tr {
     color: #fff;
@@ -277,8 +299,8 @@ a.sidebar-link:hover span {
 }
 
 tr.highlight th {
-    background-color: #D6E5FA;
-    color: #000;
+    background-color: rgb(150, 17, 98);
+    color: #fff;
 }
 
 .content {
@@ -301,12 +323,20 @@ tr.highlight th {
 }
 
 footer {
-    background-color: #D6E5FA;
+    background-color: rgb(150, 17, 98);
     padding: 1rem .875rem;
 }
 
+footer .list-inline-item .text-body-secondary {
+    color: #fff !important;
+}
 
-@media(min-width:768px) {
+footer a strong {
+  color: white;
+}
+
+/* peraturan css pake yg ini pas layar minimal 768px */
+@media(min-width:768px) { 
 
     .input-group-navbar .form-control:focus{
         outline: none;
@@ -340,4 +370,11 @@ footer {
         box-shadow: 0.1rem .2rem rgb(0, 0, 0, .05);
     }
 
+}
+
+/* peraturan css pake yg ini pas layar max 768px */
+@media (max-width: 768px) {
+  .main {
+    margin-left: 90px; /* pas sidebar collapse */
+  }
 }

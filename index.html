@@ -42,12 +42,12 @@
                         <span>Orders</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                <!-- <li class="sidebar-item">
                     <a href="#" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="clipboard"></ion-icon>
                         <span>Catatan</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown d-flex align-items-center gap-2" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
                         <ion-icon name="clipboard"></ion-icon>
@@ -66,7 +66,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar-item">
+                <!-- <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown d-flex align-items-center gap-2" data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
                         <ion-icon name="list-outline"></ion-icon>
                         <span>Multi Level</span>
@@ -86,21 +86,21 @@
                              </ul>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="notifications"></ion-icon>
                         <span>Notification</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                <!-- <li class="sidebar-item">
                     <a href="#" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="settings"></ion-icon>
                         <span>Setting</span>
                     </a>
-                </li>
+                </li> -->
             </ul>
-            <div class="sidebar-footer">
+            <div class="sidebar-footer mb-3">
                 <a href="#" class="sidebar-link d-flex align-items-center gap-2">
                     <ion-icon name="log-out-outline"></ion-icon>
                     <span>Logout</span>
@@ -119,9 +119,12 @@
                 </form>
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ms-auto">
+                        <button class="btn btn-rounded me-2" type="button" style="color: rgb(150, 17, 98);">
+                            <ion-icon name="notifications"></ion-icon>
+                        </button>
                         <li class="nav-item dropdown">
                             <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                <img src="images/kurena1.jpeg" class="avatar img-fluid rounded-circle" alt="user avatar">
+                                <img src="images/cha.jpeg" class="avatar img-fluid rounded-circle" alt="user avatar">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
                                 <a href="#" class="dropdown-item">
@@ -132,12 +135,6 @@
                                     <ion-icon name="layers-outline"></ion-icon>
                                     <span>Setting</span>
                                 </a>
-                                <div class="dropdown-divider">
-                                    <a href="#" class="dropdown-item">
-                                    <ion-icon name="layers-outline"></ion-icon>
-                                    <span>Help Center</span>
-                                </a>
-                                </div>
                             </div>
                         </li>
                     </ul>
@@ -180,10 +177,10 @@
                             <div class="col-md-6 grid-margin transparent">
                                 <div class="row">
                                 <div class="col-md-6 mb-4 stretch-card transparent">
-                                    <div class="card shadow">
+                                    <div class="card card-stat shadow">
                                     <div class="card-body">
                                         <p class="mb-3 ms-2 fw-bold">Order hari ini</p>
-                                        <h2 class="mb-2 ms-2 fw-bold">3</h2>
+                                        <h2 class="mb-2 ms-2 fw-bold">40</h2>
                                         <span class="badge text-success" style="font-size: 1.1rem;">
                                             50.00% <ion-icon name="arrow-up-outline"></ion-icon>
                                         </span>
@@ -194,7 +191,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4 stretch-card transparent">
-                                    <div class="card shadow">
+                                    <div class="card card-stat shadow">
                                     <div class="card-body">
                                         <p class="mb-3 ms-2 fw-bold">Total order</p>
                                         <h2 class="mb-2 ms-2 fw-bold">69420</h2>
@@ -210,12 +207,12 @@
                                 </div>
                                 <div class="row">
                                 <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-                                    <div class="card shadow">
+                                    <div class="card card-stat shadow">
                                     <div class="card-body">
-                                        <p class="mb-3 ms-2 fw-bold">Number of Meetings</p>
-                                        <h2 class="mb-2 ms-2 fw-bold">34040</h2>
+                                        <p class="mb-3 ms-2 fw-bold">Omzet</p>
+                                        <h2 class="mb-2 ms-2 fw-bold">Rp69.420.000</h2>
                                         <span class="badge text-success" style="font-size: 1.1rem;">
-                                            0.5% <ion-icon name="arrow-up-outline"></ion-icon>
+                                            61% <ion-icon name="arrow-up-outline"></ion-icon>
                                         </span>
                                         <span>
                                             Dari Bulan Lalu
@@ -224,7 +221,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 stretch-card transparent">
-                                    <div class="card shadow">
+                                    <div class="card card-stat shadow">
                                     <div class="card-body">
                                         <p class="mb-3 ms-2 fw-bold">Total Pelanggan</p>
                                         <h2 class="mb-2 ms-2 fw-bold">1000</h2>
@@ -252,7 +249,7 @@
                                             <thead>
                                                 <tr class="highlight">
                                                 <th>Prdoduk</th>
-                                                <th>Price</th>
+                                                <th>Harga</th>
                                                 <th>Jumlah Terjual</th>
                                                 <th>Status</th>
                                                 </tr>  
