@@ -35,75 +35,31 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/pages/customer.html" class="sidebar-link d-flex align-items-center gap-2">
+                    <a href="../pages/customer.html" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="people"></ion-icon>
                         <span>Customer</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/pages/order.html" class="sidebar-link d-flex align-items-center gap-2">
+                    <a href="../pages/order.html" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="cart"></ion-icon>
                         <span>Orders</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/pages/stock.html" class="sidebar-link d-flex align-items-center gap-2">
+                    <a href="../pages/stock.html" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="clipboard"></ion-icon>
                         <span>Stock</span>
                     </a>
                 </li>
-                <!--Menu DropDown-->
-                <!-- <li class="sidebar-item">
-                    <a href="/pages/stock.html" class="sidebar-link collapsed has-dropdown d-flex align-items-center gap-2" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                        <ion-icon name="clipboard"></ion-icon>
-                        <span>Stock</span>
-                    </a>                    
-                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link d-flex align-items-center gap-2">
-                                Dus
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link d-flex align-items-center gap-2">
-                                Glaze
-                            </a>
-                        </li>
-                    </ul>
-                </li> -->
-                <!-- <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed has-dropdown d-flex align-items-center gap-2" data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
-                        <ion-icon name="list-outline"></ion-icon>
-                        <span>Multi Level</span>
-                    </a>
-                    <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
-                            Two Links
-                             </a>
-                             <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
-                                <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link d-flex align-items-center gap-2">Link1</a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link d-flex align-items-center gap-2">Link2</a>
-                                </li>
-                             </ul>
-                        </li>
-                    </ul>
-                </li> -->
+
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="notifications"></ion-icon>
                         <span>Notification</span>
                     </a>
                 </li>
-                <!-- <li class="sidebar-item">
-                    <a href="#" class="sidebar-link d-flex align-items-center gap-2">
-                        <ion-icon name="settings"></ion-icon>
-                        <span>Setting</span>
-                    </a>
-                </li> -->
+
             </ul>
             <div class="sidebar-footer mb-3">
                 <a href="#" class="sidebar-link d-flex align-items-center gap-2">
@@ -136,7 +92,7 @@
                         <!--Foto Profile-->
                         <li class="nav-item dropdown">
                             <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                <img src="/images/cha.jpeg" class="avatar img-fluid rounded-circle" alt="user avatar">
+                                <img src="../images/mybini.jpeg" class="avatar img-fluid rounded-circle" alt="user avatar">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
                                 <a href="#" class="dropdown-item">
@@ -153,22 +109,124 @@
                 </div>
             </nav>
 
-            <!--Menu Utama DashBoard-->
-            <main class="content px-3 py-4">
+                    <main class="content px-3 py-4">
                 <div class="container-fluid">
                     <div class="mb-3">
-                                           
+                        <h3 class="mb-4">Data Stok Bahan</h3>
+                        <div class="table-responsive">
+                            <div class="col-md-20 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!--Table Data Stock-->
+                                        <div class="table-responsive rounded">
+                                            <table class="table table-striped table-borderless">
+                                                <!--Table Head Stock-->
+                                                <thead>
+                                                    <tr class="highlight table-danger">
+                                                        <th>Nama Bahan</th>
+                                                        <th>Jumlah</th>
+                                                        <th>Tanggal Beli</th>
+                                                        <th>Tanggal Expired</th>
+                                                        <th>Harga Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Tepung Terigu</td>
+                                                        <td>10 kg</td>
+                                                        <td>2025-05-10</td>
+                                                        <td>2025-06-10</td>
+                                                        <td>120.000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Gula Pasir</td>
+                                                        <td>5 kg</td>
+                                                        <td>2025-05-12</td>
+                                                        <td>2025-06-15</td>
+                                                        <td>50.000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mentega</td>
+                                                        <td>3 kg</td>
+                                                        <td>2025-05-11</td>
+                                                        <td>2025-06-01</td>
+                                                        <td>75.000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Keju Parut</td>
+                                                        <td>2 kg</td>
+                                                        <td>2025-05-13</td>
+                                                        <td>2025-05-30</td>
+                                                        <td>90.000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Coklat Bubuk</td>
+                                                        <td>1.5 kg</td>
+                                                        <td>2025-05-14</td>
+                                                        <td>2025-07-01</td>
+                                                        <td>60.000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Strawberry Jam</td>
+                                                        <td>1 kg</td>
+                                                        <td>2025-05-15</td>
+                                                        <td>2025-06-05</td>
+                                                        <td>45.000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oreo Crumbs</td>
+                                                        <td>2 kg</td>
+                                                        <td>2025-05-13</td>
+                                                        <td>2025-06-20</td>
+                                                        <td>70.000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Telur</td>
+                                                        <td>2 lusin</td>
+                                                        <td>2025-05-14</td>
+                                                        <td>2025-05-21</td>
+                                                        <td>36.000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Susu Cair</td>
+                                                        <td>5 liter</td>
+                                                        <td>2025-05-12</td>
+                                                        <td>2025-05-25</td>
+                                                        <td>55.000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Matcha Powder</td>
+                                                        <td>1 kg</td>
+                                                        <td>2025-05-10</td>
+                                                        <td>2025-06-30</td>
+                                                        <td>65.000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Red Velvet Mix</td>
+                                                        <td>1.2 kg</td>
+                                                        <td>2025-05-11</td>
+                                                        <td>2025-07-10</td>
+                                                        <td>58.000</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
+
 
             <!--Footer DashBoard-->
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row text-light">
                         <div class="col-6 text-start">
-                            <a href="/index.html" class="ps-3">
-                                <img src="/images/logodonat.png" alt="logo putih" class="logo-img">
+                            <a href="../index.html" class="ps-3">
+                                <img src="../images/logodonat.png" alt="logo putih" class="logo-img">
                             </a>
                         </div>
                         <div class="col-6 text-end text-light d-none d-md-block">
