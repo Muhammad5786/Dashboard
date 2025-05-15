@@ -327,8 +327,8 @@ footer {
     padding: 1rem .875rem;
 }
 
-footer .list-inline-item .text-body-secondary {
-    color: #fff !important;
+footer .list-inline-item .text-light {
+    color: #fff;
 }
 
 footer a strong {

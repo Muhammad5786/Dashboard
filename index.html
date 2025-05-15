@@ -29,33 +29,32 @@
             <!--List Menu SideBar-->
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link d-flex align-items-center gap-2">
+                    <a href="index.html" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="home"></ion-icon>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link d-flex align-items-center gap-2">
+                    <a href="/pages/customer.html" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="people"></ion-icon>
                         <span>Customer</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link d-flex align-items-center gap-2">
+                    <a href="/pages/order.html" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="cart"></ion-icon>
                         <span>Orders</span>
                     </a>
                 </li>
-                <!-- <li class="sidebar-item">
-                    <a href="#" class="sidebar-link d-flex align-items-center gap-2">
-                        <ion-icon name="clipboard"></ion-icon>
-                        <span>Catatan</span>
-                    </a>
-                </li> -->
-
-                <!--Menu DropDown-->
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed has-dropdown d-flex align-items-center gap-2" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                    <a href="/pages/stock.html" class="sidebar-link d-flex align-items-center gap-2">
+                        <ion-icon name="clipboard"></ion-icon>
+                        <span>Stock</span>
+                    </a>
+                </li>
+                <!--Menu DropDown-->
+                <!-- <li class="sidebar-item">
+                    <a href="/pages/stock.html" class="sidebar-link collapsed has-dropdown d-flex align-items-center gap-2" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
                         <ion-icon name="clipboard"></ion-icon>
                         <span>Stock</span>
                     </a>                    
@@ -71,7 +70,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <!-- <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown d-flex align-items-center gap-2" data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
                         <ion-icon name="list-outline"></ion-icon>
@@ -166,7 +165,7 @@
                         <p class="fw-normal pb-3">"Dan Dia memberinya rezeki dari arah yang tidak disangka-sangkanya." (65:3)</p>
                         <!--Buat Row utk manajemen layout-->
                         <div class="row">
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-lg-6">
                                 <!--Buat Carousel Foto Donat-->
                                 <div id="donatCarousel" class="carousel shadow slide mb-4" data-bs-ride="carousel">
                                     <!-- Aspect ratio 9:16 -->
@@ -193,7 +192,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 grid-margin transparent">
+                            <div class="col-lg-6 grid-margin transparent">
                                 <!--Buat Laporan Dalam Bentuk Row-->
                                 <div class="row">
                                 <!--Info Laporan Oder Hari ini-->
@@ -233,7 +232,7 @@
                                 <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
                                     <div class="card card-stat shadow">
                                     <div class="card-body">
-                                        <p class="mb-3 ms-2 fw-bold">Omzet</p>
+                                        <p class="mb-3 ms-2 fw-bold">Omzet bulan ini</p>
                                         <h2 class="mb-2 ms-2 fw-bold">Rp69.420.000</h2>
                                         <span class="badge text-success" style="font-size: 1.1rem;">
                                             61% <ion-icon name="arrow-up-outline"></ion-icon>
@@ -248,8 +247,8 @@
                                 <div class="col-md-6 stretch-card transparent">
                                     <div class="card card-stat shadow">
                                     <div class="card-body">
-                                        <p class="mb-3 ms-2 fw-bold">Total Pelanggan</p>
-                                        <h2 class="mb-2 ms-2 fw-bold">1000</h2>
+                                        <p class="mb-3 ms-2 fw-bold">Total pelanggan</p>
+                                        <h2 class="mb-2 ms-2 fw-bold">1001</h2>
                                         <span class="badge text-success" style="font-size: 1.1rem;">
                                             20.00% <ion-icon name="arrow-up-outline"></ion-icon>
                                         </span>
@@ -276,7 +275,7 @@
                                             <!--Table Head Produk Terlaris-->
                                             <thead>
                                                 <tr class="highlight">
-                                                <th>Prdoduk</th>
+                                                <th>Produk</th>
                                                 <th>Harga</th>
                                                 <th>Jumlah Terjual</th>
                                                 <th>Status</th>
@@ -345,22 +344,22 @@
             <!--Footer DashBoard-->
             <footer class="footer">
                 <div class="container-fluid">
-                    <div class="row text-body-secondary">
+                    <div class="row text-light">
                         <div class="col-6 text-start">
-                            <a href="#" class="text-body-secondary">
-                                <strong>Donuts</strong>
+                            <a href="index.html" class="ps-3">
+                                <img src="images/logodonat.png" alt="logo putih" class="logo-img">
                             </a>
                         </div>
-                        <div class="col-6 text-end text-body-secondary d-none d-md-block">
+                        <div class="col-6 text-end text-light d-none d-md-block">
                             <ul class="list-inline mb-0">
                                 <li class="list-inline-item">
-                                    <a href="#" class="text-body-secondary">Contact</a>
+                                    <a href="#" class="text-light">Contact</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#" class="text-body-secondary">About</a>
+                                    <a href="#" class="text-light">About</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#" class="text-body-secondary">Terms & Conditions</a>
+                                    <a href="#" class="text-light">Terms & Conditions</a>
                                 </li>
                             </ul>
                         </div>
