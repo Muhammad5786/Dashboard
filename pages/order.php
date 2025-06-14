@@ -181,6 +181,24 @@
                         </div>
                     </div>
                         <p class="fw-normal pb-3">"Dan Dia telah memberikan kepadamu (keperluanmu) dan segala apa yang kamu mohonkan kepadanya."</p>
+                        <!--Menghubungkan Database-->>
+                        <?php
+                            include("../php/koneksi.php");
+                            $sql = "SELECT 
+                                order_detail.tanggal,
+                                order_detail.jumlah,
+                                order_detail.total,
+                                order_detail.tanggal,
+                                order_detail.status,
+                                order_detail.via,
+                                produk.nama AS nama_produk,
+                                pelanggan.nama AS nama_pelanggan
+                                FROM order_detail
+                                JOIN pelanggan ON order_detail.id_pelanggan = pelanggan.id_pelanggan
+                                JOIN produk ON order_detail.id_produk = produk.id_produk
+                                ORDER BY order_detail.tanggal DESC;";
+                            $result = mysqli_query($conn, $sql);
+                        ?>
                         <div class="table-responsive">
                             <div class="col-md-20 grid-margin stretch-card">
                                 <div class="card">
@@ -204,105 +222,30 @@
                                             <thead>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>2025-05-15</td>
-                                                    <td>Andi</td>
-                                                    <td>Donat Coklat</td>
-                                                    <td>2</td>
-                                                    <td>20.000</td>
-                                                    <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
-                                                    <td>cash</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2025-05-15</td>
-                                                    <td>Siti</td>
-                                                    <td>Donat Keju</td>
-                                                    <td>3</td>
-                                                    <td>30.000</td>
-                                                    <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
-                                                    <td>cash</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2025-05-14</td>
-                                                    <td>Budi</td>
-                                                    <td>Donat Matcha</td>
-                                                    <td>1</td>
-                                                    <td>10.000</td>
-                                                    <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
-                                                    <td>cash</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2025-05-14</td>
-                                                    <td>Dina</td>
-                                                    <td>Donat Stroberi</td>
-                                                    <td>5</td>
-                                                    <td>50.000</td>
-                                                    <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
-                                                    <td>cash</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2025-05-13</td>
-                                                    <td>Edo</td>
-                                                    <td>Donat Keju</td>
-                                                    <td>4</td>
-                                                    <td>40.000</td>
-                                                    <td class="font-weight-medium"><div class="badge badge-danger">Cancelled</div></td>
-                                                    <td>bsi</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2025-05-13</td>
-                                                    <td>Rayhan</td>
-                                                    <td>Donat Red Velvet</td>
-                                                    <td>3</td>
-                                                    <td>36.000</td>
-                                                    <td class="font-weight-medium"><div class="badge badge-danger">Cancelled</div></td>
-                                                    <td>bsi</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2025-05-12</td>
-                                                    <td>Yanto</td>
-                                                    <td>Donat Oreo</td>
-                                                    <td>6</td>
-                                                    <td>60.000</td>
-                                                    <td class="font-weight-medium"><div class="badge badge-danger">Cancelled</div></td>
-                                                    <td>bsi</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2025-05-12</td>
-                                                    <td>Aril</td>
-                                                    <td>Donat Coklat</td>
-                                                    <td>2</td>
-                                                    <td>20.000</td>
-                                                    <td class="font-weight-medium"><div class="badge badge-danger">Cancelled</div></td>
-                                                    <td>bsi</td>
-                                                </tr>
-                                                 <tr>
-                                                    <td>2025-05-12</td>
-                                                    <td>Hilmi</td>
-                                                    <td>Donat Jawa</td>
-                                                    <td>5</td>
-                                                    <td>50.000</td>
-                                                    <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
-                                                    <td>bsi</td>
-                                                </tr>
-                                                 <tr>
-                                                    <td>2025-05-12</td>
-                                                    <td>Muhammad</td>
-                                                    <td>Donat Keju</td>
-                                                    <td>4</td>
-                                                    <td>40.000</td>
-                                                    <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
-                                                    <td>bca</td>
-                                                </tr>
-                                                 <tr>
-                                                    <td>2025-05-12</td>
-                                                    <td>Sumbul</td>
-                                                    <td>Donat ikan</td>
-                                                    <td>1</td>
-                                                    <td>10.000</td>
-                                                    <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
-                                                    <td>bca</td>
-                                                </tr>
+                                                <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                                                        <tr>
+                                                            <td><?php echo $row['tanggal']; ?></td>
+                                                            <td><?php echo $row['nama_pelanggan']; ?></td>
+                                                            <td><?php echo $row['nama_produk']; ?></td>
+                                                            <td><?php echo $row['jumlah']; ?></td>
+                                                            <td><?php echo $row['total']; ?></td>
+                                                            <td class="font-weight-medium">
+                                                                <div class="badge 
+                                                                    <?php 
+                                                                        if ($row['status'] == 'Pending') {
+                                                                            echo 'badge-warning';
+                                                                        } elseif ($row['status'] == 'Canceled') {
+                                                                            echo 'badge-danger';
+                                                                        } elseif ($row['status'] == 'Completed') {
+                                                                            echo 'badge-success';
+                                                                        }
+                                                                    ?>">
+                                                                    <?php echo $row['status']; ?>
+                                                                </div>
+                                                            </td>
+                                                            <td><?php echo $row['via']; ?></td>
+                                                        </tr>
+                                                    <?php } ?>
                                             </tbody>
                                             </table>
                                         </div>
