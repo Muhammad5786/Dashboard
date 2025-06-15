@@ -28,3 +28,14 @@ new Chart(document.getElementById("bar-chart-grouped"), {
       }
     }
 });
+
+//JavaScript untuk database
+document.addEventListener('DOMContentLoaded', function () {
+var hapusModal = document.getElementById('modalHapusCustomer');
+hapusModal.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget;
+    var id = button.getAttribute('data-id');
+    var input = document.getElementById('idToDelete');
+    input.value = id;
+});
+});

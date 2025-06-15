@@ -167,6 +167,12 @@
                         <h3 class="fw-bold fs-2 mb-2">
                             Customer
                         </h3>
+                        <!--Menghubungkan Database-->
+                        <?php
+                            include("../php/koneksi.php");
+                            $sql = "SELECT * FROM pelanggan";
+                            $result = mysqli_query($conn, $sql);
+                        ?>
                         <div class="d-flex align-items-center justify-content-between btn-add-customer">
                             <div class="fw-normal my-3 quotes-customer">"Dan Dia memberinya rezeki dari arah yang tidak
                                 disangka-sangkanya."
@@ -176,17 +182,13 @@
                                     data-bs-target="#modalTambahCustomer">
                                     <i class="bx bx-plus"></i> Tambah Customer
                                 </button>
-                                <button class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalHapusCustomer">
-                                    <i class="bx bx-trash"></i> Hapus Customer
-                                </button>
                             </div>
                             <!-- <div class=""> -->
                             <div class="modal fade" id="modalTambahCustomer" tabindex="-1"
                                 aria-labelledby="modalTambahCustomerLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <form id="formTambahCustomer">
+                                        <form id="formTambahCustomer" method="POST" action="../php/aksi_simpan_pelanggan.php">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="tambahCustomerLabel">Tambah customer</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -194,20 +196,20 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="mb-3">
-                                                    <label for="tanggal" class="form-label">Nama</label>
-                                                    <input type="text" class="form-control" id="tanggal" required>
+                                                    <label for="nama" class="form-label">Nama</label>
+                                                    <input type="text" class="form-control" id="nama" name="nama" required>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="nama" class="form-label">No HP</label>
-                                                    <input type="text" class="form-control" id="nama" required>
+                                                    <label for="no_id" class="form-label">No HP</label>
+                                                    <input type="text" class="form-control" id="no_hp" name="no_hp" required>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="pesanan" class="form-label">Deskripsi</label>
-                                                    <input type="text" class="form-control" id="pesanan" required>
+                                                    <label for="deskripsi" class="form-label">Deskripsi</label>
+                                                    <input type="text" class="form-control" id="deskripsi" name="deskripsi" required>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="jumlah" class="form-label">Alamat</label>
-                                                    <input type="text" class="form-control" id="jumlah" required>
+                                                    <label for="alamat" class="form-label">Alamat</label>
+                                                    <input type="text" class="form-control" id="alamat" name="alamat" required>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -217,22 +219,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal fade" id="modalHapusCustomer" tabindex="-1"
-                                aria-labelledby="modalHapusCustomerLabel" aria-hidden="true">
+                            <div class="modal fade" id="modalHapusCustomer" tabindex="-1" aria-labelledby="modalHapusCustomerLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="modalHapusCustomerLabel">Konfirmasi Hapus</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Tutup"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Apakah Anda yakin ingin menghapus baris terakhir dari tabel?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger"
-                                                onclick="hapusBaris()">Hapus</button>
-                                        </div>
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Apakah Anda yakin ingin menghapus pelanggan?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form method="GET" action="../php/delete_pelanggan.php">
+                                        <input type="hidden" name="id" id="idToDelete">
+                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                        </form>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -254,18 +256,30 @@
                                                         <th>NO HP</th>
                                                         <th>Alamat</th>
                                                         <th>Deskripsi</th>
+                                                        <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <!--Data stock-->
                                                 <thead>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>Dummy</td>
-                                                        <td>Dummy</td>
-                                                        <td>Dummy</td>
-                                                        <td>Dummy</td>
-                                                    </tr>
+                                                    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                                                        <tr>
+                                                            <td><?php echo $row['nama']; ?></td>
+                                                            <td><?php echo $row['no_hp']; ?></td>
+                                                            <td><?php echo $row['alamat']; ?></td>
+                                                            <td><?php echo $row['deskripsi']; ?></td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-danger" 
+                                                                    data-bs-toggle="modal" 
+                                                                    data-bs-target="#modalHapusCustomer"
+                                                                    data-id="<?php echo $row['id_pelanggan']; ?>">
+                                                                    Hapus
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    <?php } ?>
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -315,6 +329,19 @@
     <!-- ionicon vendor buat icon -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+  var hapusModal = document.getElementById('modalHapusCustomer');
+  hapusModal.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget;
+    var id = button.getAttribute('data-id');
+    var input = document.getElementById('idToDelete');
+    input.value = id;
+  });
+});
+</script>
+
 </body>
 
 </html>

@@ -7,6 +7,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 
 </head>
@@ -112,58 +113,87 @@
             <div class="modal fade" id="modalTambahOrder" tabindex="-1" aria-labelledby="modalTambahOrderLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                <form id="formTambahOrder">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="modalTambahOrderLabel">Tambah Order</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
-                    </div>
-                    <div class="modal-body">
+                    <form id="formTambahOrder" method="POST" action="../php/aksi_simpan_order.php">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="modalTambahOrderLabel">Tambah Order</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                      </div>
+                      <div class="modal-body">
                         <div class="mb-3">
-                            <label for="tanggal" class="form-label">Tanggal</label>
-                            <input type="date" class="form-control" id="tanggal" required>
+                          <label for="tanggal" class="form-label">Tanggal</label>
+                          <input type="date" class="form-control" id="tanggal" name="tanggal" required>
                         </div>
+
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Customer</label>
-                            <input type="text" class="form-control" id="nama" required>
+                          <label for="nama" class="form-label">Nama Customer</label>
+                          <input type="text" class="form-control" id="nama" name="nama_pelanggan" list="listPelanggan" required>
+                          <!-- Pelanggan -->
+                        <datalist id="listPelanggan">
+                        <?php
+                        include '../php/koneksi.php';
+                        $sql = "SELECT nama FROM pelanggan";
+                        $result = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<option value='" . $row['nama'] . "'>";
+                        }
+                        ?>
+                        </datalist>
                         </div>
+
                         <div class="mb-3">
-                            <label for="pesanan" class="form-label">Pesanan</label>
-                            <input type="text" class="form-control" id="pesanan" required>
+                          <label for="pesanan" class="form-label">Pesanan</label>
+                          <input type="text" class="form-control" id="pesanan" name="nama_produk" list="listProduk" required>
+                          <!-- Produk -->
+                            <datalist id="listProduk">
+                            <?php
+                            $sql = "SELECT DISTINCT nama FROM produk";
+                            $result = mysqli_query($conn, $sql);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['nama'] . "'>";
+                            }
+                            ?>
+                            </datalist>
                         </div>
+
                         <div class="mb-3">
-                            <label for="jumlah" class="form-label">Jumlah</label>
-                            <input type="number" class="form-control" id="jumlah" required>
+                          <label for="jumlah" class="form-label">Jumlah</label>
+                          <input type="number" class="form-control" id="jumlah" name="jumlah" required>
                         </div>
+                        
                         <div class="mb-3">
-                            <label for="harga" class="form-label">Harga Total</label>
-                            <input type="number" class="form-control" id="harga" required>
+                          <label for="via" class="form-label">Via</label>
+                          <input type="text" class="form-control" id="via" placeholder="Contoh: Cash, Transfer, dll" name="via" required>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Simpan</button>
-                    </div>
-                </form>
+                      </div>
+
+                      <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Simpan</button>
+                      </div>
+                    </form>
                 </div>
             </div>
             </div>
 
-            <!-- Modal Konfirmasi Hapus -->
+            <!-- Modal Hapus Order -->
             <div class="modal fade" id="modalHapusOrder" tabindex="-1" aria-labelledby="modalHapusOrderLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalHapusOrderLabel">Konfirmasi Hapus</h5>
+                    <h5 class="modal-title">Konfirmasi Hapus Order</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
                 </div>
                 <div class="modal-body">
-                    Apakah Anda yakin ingin menghapus baris terakhir dari tabel?
+                    Apakah Anda yakin ingin menghapus order ini?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" onclick="hapusBaris()">Hapus</button>
+                    <form method="GET" action="../php/delete_order.php">
+                    <input type="hidden" name="id" id="orderIdToDelete">
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
                 </div>
                 </div>
             </div>
-        </div>
+            </div>
 
             <!--Menu Order-->
             <main class="content px-3 py-4">
@@ -181,10 +211,10 @@
                         </div>
                     </div>
                         <p class="fw-normal pb-3">"Dan Dia telah memberikan kepadamu (keperluanmu) dan segala apa yang kamu mohonkan kepadanya."</p>
-                        <!--Menghubungkan Database-->>
+                        <!--Menghubungkan Database-->
                         <?php
-                            include("../php/koneksi.php");
                             $sql = "SELECT 
+                                order_detail.id_detail,
                                 order_detail.tanggal,
                                 order_detail.jumlah,
                                 order_detail.total,
@@ -216,6 +246,7 @@
                                                 <th>Harga Total</th>
                                                 <th>Status</th>
                                                 <th>Via</th>
+                                                <th>Aksi</th>
                                                 </tr>  
                                             </thead>
                                             <!--Data stock-->
@@ -244,6 +275,17 @@
                                                                 </div>
                                                             </td>
                                                             <td><?php echo $row['via']; ?></td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-danger"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#modalHapusOrder"
+                                                                    data-id="<?php echo $row['id_detail']; ?>">
+                                                                    Hapus
+                                                                    </button>
+                                                                    <!-- 
+                                                                    <a href="../php/delete_order.php?id=<?php echo $row['id_detail']; ?>" class="btn btn-danger">Hapus</a>
+                                                                    -->
+                                                            </td>
                                                         </tr>
                                                     <?php } ?>
                                             </tbody>
@@ -288,11 +330,21 @@
 
     <!--Buat chart dari scriptjs -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     <script src="/script.js"></script>
     <!-- ionicon vendor buat icon -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    var hapusModal = document.getElementById('modalHapusOrder');
+    hapusModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        var id = button.getAttribute('data-id');
+        var input = document.getElementById('orderIdToDelete');
+        input.value = id;
+    });
+    });
+    </script>
+</body> 
 </html>
