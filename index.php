@@ -18,7 +18,7 @@
             <!--Logo Icon Hamburger Sidebar-->
            <div class="d-flex justify-content-between p-4">
                 <div class="sidebar-logo">
-                    <a href="index.html">
+                    <a href="index.php">
                         <img src="images/logodonat.png" alt="logo putih" class="logo-img">
                     </a>
                 </div>
@@ -29,81 +29,35 @@
             <!--List Menu SideBar-->
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="index.html" class="sidebar-link d-flex align-items-center gap-2">
+                    <a href="index.php" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="home"></ion-icon>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="../pages/customer.html" class="sidebar-link d-flex align-items-center gap-2">
+                    <a href="pages/customer.php" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="people"></ion-icon>
                         <span>Customer</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="../pages/order.html" class="sidebar-link d-flex align-items-center gap-2">
+                    <a href="pages/order.php" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="cart"></ion-icon>
                         <span>Orders</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="../pages/stock.html" class="sidebar-link d-flex align-items-center gap-2">
+                    <a href="pages/stock.php" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="clipboard"></ion-icon>
                         <span>Stock</span>
                     </a>
                 </li>
-                <!--Menu DropDown-->
-                <!-- <li class="sidebar-item">
-                    <a href="/pages/stock.html" class="sidebar-link collapsed has-dropdown d-flex align-items-center gap-2" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                        <ion-icon name="clipboard"></ion-icon>
-                        <span>Stock</span>
-                    </a>                    
-                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link d-flex align-items-center gap-2">
-                                Dus
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link d-flex align-items-center gap-2">
-                                Glaze
-                            </a>
-                        </li>
-                    </ul>
-                </li> -->
-                <!-- <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed has-dropdown d-flex align-items-center gap-2" data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
-                        <ion-icon name="list-outline"></ion-icon>
-                        <span>Multi Level</span>
-                    </a>
-                    <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
-                            Two Links
-                             </a>
-                             <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
-                                <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link d-flex align-items-center gap-2">Link1</a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link d-flex align-items-center gap-2">Link2</a>
-                                </li>
-                             </ul>
-                        </li>
-                    </ul>
-                </li> -->
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="notifications"></ion-icon>
                         <span>Notification</span>
                     </a>
                 </li>
-                <!-- <li class="sidebar-item">
-                    <a href="#" class="sidebar-link d-flex align-items-center gap-2">
-                        <ion-icon name="settings"></ion-icon>
-                        <span>Setting</span>
-                    </a>
-                </li> -->
             </ul>
             <div class="sidebar-footer mb-3">
                 <a href="#" class="sidebar-link d-flex align-items-center gap-2">
@@ -339,7 +293,7 @@
                 <div class="container-fluid">
                     <div class="row text-light">
                         <div class="col-6 text-start">
-                            <a href="index.html" class="ps-3">
+                            <a href="index.php" class="ps-3">
                                 <img src="images/logodonat.png" alt="logo putih" class="logo-img">
                             </a>
                         </div>

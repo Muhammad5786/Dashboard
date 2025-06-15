@@ -18,7 +18,7 @@
             <!--Logo Icon Hamburger Sidebar-->
            <div class="d-flex justify-content-between p-4">
                 <div class="sidebar-logo">
-                    <a href="../index.html">
+                    <a href="../index.php">
                         <img src="../images/logodonat.png" alt="logo putih" class="logo-img">
                     </a>
                 </div>
@@ -29,25 +29,25 @@
             <!--List Menu SideBar-->
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="../index.html" class="sidebar-link d-flex align-items-center gap-2">
+                    <a href="../index.php" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="home"></ion-icon>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="../pages/customer.html" class="sidebar-link d-flex align-items-center gap-2">
+                    <a href="customer.php" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="people"></ion-icon>
                         <span>Customer</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="../pages/order.html" class="sidebar-link d-flex align-items-center gap-2">
+                    <a href="order.php" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="cart"></ion-icon>
                         <span>Orders</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="../pages/stock.html" class="sidebar-link d-flex align-items-center gap-2">
+                    <a href="stock.php" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="clipboard"></ion-icon>
                         <span>Stock</span>
                     </a>
@@ -226,7 +226,7 @@
                 <div class="container-fluid">
                     <div class="row text-light">
                         <div class="col-6 text-start">
-                            <a href="../index.html" class="ps-3">
+                            <a href="../index.php" class="ps-3">
                                 <img src="../images/logodonat.png" alt="logo putih" class="logo-img">
                             </a>
                         </div>
