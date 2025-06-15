@@ -205,9 +205,6 @@
                             <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalTambahOrder">
                                 <i class="bx bx-plus"></i> Tambah Order
                             </button>
-                            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusOrder">
-                                <i class="bx bx-trash"></i> Hapus Order
-                            </button>
                         </div>
                     </div>
                         <p class="fw-normal pb-3">"Dan Dia telah memberikan kepadamu (keperluanmu) dan segala apa yang kamu mohonkan kepadanya."</p>
