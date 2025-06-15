@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Donat</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 
 
 </head>
-<body>  
+
+<body>
     <!--Pembungkus Class Wrapper dengan Display Flex-->
     <div class="wrapper">
         <!--SideBar Web-->
         <aside id="sidebar">
             <!--Logo Icon Hamburger Sidebar-->
-           <div class="d-flex justify-content-between p-4">
+            <div class="d-flex justify-content-between p-4">
                 <div class="sidebar-logo">
                     <a href="customer.html">
                         <img src="/images/logodonat.png" alt="logo putih" class="logo-img">
@@ -120,7 +126,8 @@
                 <!--Nabar samping Kiri: Form Input Navbar (Search)-->
                 <form action="#" class="d-none d-sm-inline-block">
                     <div class="input-group input-group-navbar">
-                        <input type="text" class="form-control border-0 rounded pe-0" style="background-color:rgb(214, 214, 214);"placeholder="Search.." aria-label="Search">
+                        <input type="text" class="form-control border-0 rounded pe-0"
+                            style="background-color:rgb(214, 214, 214);" placeholder="Search.." aria-label="Search">
                         <button class="btn btn-rounded" type="button">
                             <ion-icon name="search-outline"></ion-icon>
                         </button>
@@ -160,90 +167,112 @@
                         <h3 class="fw-bold fs-2 mb-2">
                             Customer
                         </h3>
-                        <p class="fw-normal pb-3">"Dan Dia memberinya rezeki dari arah yang tidak disangka-sangkanya." (65:3)</p>
-                        <div class="col-md-20 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <!--Table Laporan list Customer-->
-                                    <div class="table-responsive rounded">
-                                        <table class="table table-striped table-borderless">
-                                        <!--Table Head Customer-->
-                                        <thead>
-                                            <tr class="highlight">
-                                            <th>Nama</th>
-                                            <th>Alamat</th>
-                                            <th>Nomor Telpon</th>
-                                            <th>Jumlah Order</th>
-                                            </tr>  
-                                        </thead>
-                                        <!--Data table Customer-->
-                                        <tbody>
-                                            <tr>
-                                            <td>Mamad</td>
-                                            <td class="font-weight-bold">Mataram MataramMataramMataramMataramMataramMataramMataramMataramMataramMataramMataramMataramMataram</td>
-                                            <td>087743233988</td>
-                                            <td>12</div>
-                                            </tr>
-                                            <tr>
-                                            <td>Hilmi</td>
-                                            <td class="font-weight-bold">Sleman</td>
-                                            <td>081224895532</td>
-                                            <td>14</td>
-                                            </tr>
-                                            <tr>
-                                            <td>Aril</td>
-                                            <td class="font-weight-bold">Seturan</td>
-                                            <td>081225348982</td>
-                                            <td>20</td>
-                                            </tr>
-                                            <tr>
-                                            <td>Rayhan</td>
-                                            <td class="font-weight-bold">Pedak</td>
-                                            <td>087743223778</td>
-                                            <td>120</td>
-                                            </tr>
-                                            <tr>
-                                            <td>Ibnu</td>
-                                            <td class="font-weight-bold">Purworejo</td>
-                                            <td>085339229666</td>
-                                            <td>10</td>
-                                            </tr>
-                                            <tr>
-                                            <td>Kumagawa</td>
-                                            <td class="font-weight-bold">Denpasar</td>
-                                            <td>085987775339</td>
-                                            <td>66</td>
-                                            </tr>
-                                            <tr>
-                                            <td>Lin Jie</td>
-                                            <td class="font-weight-bold">Palembang</td>
-                                            <td>085987722139</td>
-                                            <td>78</td>
-                                            </tr>
-                                            <tr>
-                                            <td>Rosu</td>
-                                            <td class="font-weight-bold">Selong</td>
-                                            <td>085982843439</td>
-                                            <td>90</td>
-                                            </tr>
-                                            <tr>
-                                            <td>Andrian</td>
-                                            <td class="font-weight-bold">Ampenan</td>
-                                            <td>085933543669</td>
-                                            <td>30</td>
-                                            </tr>
-                                            <tr>
-                                            <td>Xiao Zhue</td>
-                                            <td class="font-weight-bold">Gerung</td>
-                                            <td>085982998566</td>
-                                            <td>54</td>
-                                            </tr>
-                                        </tbody>
-                                        </table>
+                        <div class="d-flex align-items-center justify-content-between btn-add-customer">
+                            <div class="fw-normal my-3 quotes-customer">"Dan Dia memberinya rezeki dari arah yang tidak
+                                disangka-sangkanya."
+                                (65:3)</div>
+                            <div>
+                                <button class="btn btn-primary me-2" data-bs-toggle="modal"
+                                    data-bs-target="#modalTambahCustomer">
+                                    <i class="bx bx-plus"></i> Tambah Customer
+                                </button>
+                                <button class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#modalHapusCustomer">
+                                    <i class="bx bx-trash"></i> Hapus Customer
+                                </button>
+                            </div>
+                            <!-- <div class=""> -->
+                            <div class="modal fade" id="modalTambahCustomer" tabindex="-1"
+                                aria-labelledby="modalTambahCustomerLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form id="formTambahCustomer">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="tambahCustomerLabel">Tambah customer</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Tutup"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="tanggal" class="form-label">Nama</label>
+                                                    <input type="text" class="form-control" id="tanggal" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nama" class="form-label">No HP</label>
+                                                    <input type="text" class="form-control" id="nama" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="pesanan" class="form-label">Deskripsi</label>
+                                                    <input type="text" class="form-control" id="pesanan" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="jumlah" class="form-label">Alamat</label>
+                                                    <input type="text" class="form-control" id="jumlah" required>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-success">Simpan</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
-                        </div>           
+                            <div class="modal fade" id="modalHapusCustomer" tabindex="-1"
+                                aria-labelledby="modalHapusCustomerLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalHapusCustomerLabel">Konfirmasi Hapus</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Tutup"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Apakah Anda yakin ingin menghapus baris terakhir dari tabel?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger"
+                                                onclick="hapusBaris()">Hapus</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- </div> -->
+                        </div>
+
+                        <div class="table-responsive">
+                            <div class="col-md-20 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!--Table Laporan list Customer-->
+                                        <div class="table-responsive rounded">
+                                            <table class="table table-striped table-borderless">
+                                                <!--Table Head Customer-->
+                                                <thead>
+                                                    <tr class="highlight">
+                                                        <th>Nama</th>
+                                                        <th>NO HP</th>
+                                                        <th>Alamat</th>
+                                                        <th>Deskripsi</th>
+                                                    </tr>
+                                                </thead>
+                                                <!--Data stock-->
+                                                <thead>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Dummy</td>
+                                                        <td>Dummy</td>
+                                                        <td>Dummy</td>
+                                                        <td>Dummy</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
@@ -279,10 +308,13 @@
     <!--Buat chart dari scriptjs -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
     <script src="/script.js"></script>
     <!-- ionicon vendor buat icon -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
