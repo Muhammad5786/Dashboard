@@ -196,7 +196,7 @@
             </div>
             </div>
 
-            <!-- Modal Edit Status Order -->
+            <!-- Edit Status Order -->
             <div class="modal fade" id="modalEditStatus" tabindex="-1" aria-labelledby="modalEditStatusLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
