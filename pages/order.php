@@ -328,20 +328,9 @@
     <!--Buat chart dari scriptjs -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-    <script src="/script.js"></script>
+    <script src="../script.js"></script>
     <!-- ionicon vendor buat icon -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-    var hapusModal = document.getElementById('modalHapusOrder');
-    hapusModal.addEventListener('show.bs.modal', function (event) {
-        var button = event.relatedTarget;
-        var id = button.getAttribute('data-id');
-        var input = document.getElementById('orderIdToDelete');
-        input.value = id;
-    });
-    });
-    </script>
 </body> 
 </html>

@@ -39,3 +39,13 @@ hapusModal.addEventListener('show.bs.modal', function (event) {
     input.value = id;
 });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    var hapusModal = document.getElementById('modalHapusOrder');
+    hapusModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        var id = button.getAttribute('data-id');
+        var input = document.getElementById('orderIdToDelete');
+        input.value = id;
+    });
+    });
