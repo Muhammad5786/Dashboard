@@ -248,31 +248,29 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
                                     </div>
                                     <div class="modal-body">
-                                    <input type="hidden" id="id" name="id"> <!-- ID pelanggan -->
+                                        <div class="mb-3">
+                                            <label for="nama" class="form-label">Nama</label>
+                                            <input type="text" class="form-control" id="nama" name="nama" required>
+                                        </div>
 
-                                    <div class="mb-3">
-                                        <label for="nama" class="form-label">Nama</label>
-                                        <input type="text" class="form-control" id="nama" name="nama" required>
-                                    </div>
+                                        <div class="mb-3">
+                                            <label for="no_hp" class="form-label">No HP</label>
+                                            <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                                        </div>
 
-                                    <div class="mb-3">
-                                        <label for="no_hp" class="form-label">No HP</label>
-                                        <input type="text" class="form-control" id="no_hp" name="no_hp" required>
-                                    </div>
+                                        <div class="mb-3">
+                                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                                            <input type="text" class="form-control" id="deskripsi" name="deskripsi" required>
+                                        </div>
 
-                                    <div class="mb-3">
-                                        <label for="deskripsi" class="form-label">Deskripsi</label>
-                                        <input type="text" class="form-control" id="deskripsi" name="deskripsi" required>
-                                    </div>
+                                        <div class="mb-3">
+                                            <label for="alamat" class="form-label">Alamat</label>
+                                            <input type="text" class="form-control" id="alamat" name="alamat" required>
+                                        </div>
+                                        </div>
 
-                                    <div class="mb-3">
-                                        <label for="alamat" class="form-label">Alamat</label>
-                                        <input type="text" class="form-control" id="alamat" name="alamat" required>
-                                    </div>
-                                    </div>
-
-                                    <div class="modal-footer">
-                                    <button type="submit" class="btn btn-success">Simpan</button>
+                                        <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success">Simpan</button>
                                     </div>
                                 </form>
                                 </div>
