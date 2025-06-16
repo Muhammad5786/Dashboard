@@ -17,6 +17,8 @@
 </head>
 
 <body>
+    
+
     <!--Pembungkus Class Wrapper dengan Display Flex-->
     <div class="wrapper">
         <!--SideBar Web-->
@@ -167,6 +169,19 @@
                         <h3 class="fw-bold fs-2 mb-2">
                             Customer
                         </h3>
+                        <?php
+                            if (isset($_GET['error'])) {
+                                if ($_GET['error'] == 'nama_terpakai') {
+                                    echo "<div class='alert alert-danger'>Nama sudah digunakan, silakan gunakan nama lain.</div>";
+                                } elseif ($_GET['error'] == 'gagal_tambah') {
+                                    echo "<div class='alert alert-danger'>Gagal menambahkan data.</div>";
+                                }
+                            }
+
+                            if (isset($_GET['success']) && $_GET['success'] == 'tambah_berhasil') {
+                                echo "<div class='alert alert-success'>Data berhasil ditambahkan.</div>";
+                            }
+                        ?>
                         <!--Menghubungkan Database-->
                         <?php
                             include("../php/koneksi.php");

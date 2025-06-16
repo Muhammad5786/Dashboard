@@ -7,8 +7,6 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-
-
 </head>
 <body>  
     <!--Pembungkus Class Wrapper dengan Display Flex-->
@@ -115,6 +113,9 @@
                         <h3 class="fw-bold fs-2 mb-2">
                             Selamat datang, (Nama)!
                         </h3>
+                        <?php
+                            include("php/dashboard.php");
+                        ?>
                         <!--TagLine Website-->
                         <p class="fw-normal pb-3">"Dan Dia memberinya rezeki dari arah yang tidak disangka-sangkanya." (65:3)</p>
                         <!--Buat Row utk manajemen layout-->
@@ -154,9 +155,10 @@
                                     <div class="card card-stat shadow">
                                     <div class="card-body">
                                         <p class="mb-3 ms-2 fw-bold">Order hari ini</p>
-                                        <h2 class="mb-2 ms-2 fw-bold">40</h2>
-                                        <span class="badge text-success" style="font-size: 1.1rem;">
-                                            50.00% <ion-icon name="arrow-up-outline"></ion-icon>
+                                        <h2 class="mb-2 ms-2 fw-bold"><?php echo $order_today; ?></h2>
+                                        <span class="badge text-success">
+                                            <?php include 'php/dashboard.php'; ?>%
+                                            <ion-icon name="arrow-up-outline"></ion-icon>
                                         </span>
                                         <span>
                                             Dari Bulan Lalu
@@ -169,9 +171,9 @@
                                     <div class="card card-stat shadow">
                                     <div class="card-body">
                                         <p class="mb-3 ms-2 fw-bold">Total order</p>
-                                        <h2 class="mb-2 ms-2 fw-bold">69420</h2>
+                                        <h2 class="mb-2 ms-2 fw-bold"><?php echo $total_order; ?></h2>
                                         <span class="badge text-success" style="font-size: 1.1rem;">
-                                            120.00% <ion-icon name="arrow-up-outline"></ion-icon>
+                                            <?php echo $persen_kenaikan; ?>% <ion-icon name="arrow-up-outline"></ion-icon>
                                         </span>
                                         <span>
                                             Dari Bulan Lalu
@@ -187,9 +189,9 @@
                                     <div class="card card-stat shadow">
                                     <div class="card-body">
                                         <p class="mb-3 ms-2 fw-bold">Omzet bulan ini</p>
-                                        <h2 class="mb-2 ms-2 fw-bold">Rp69.420.000</h2>
+                                        <h2 class="mb-2 ms-2 fw-bold">Rp<?php echo number_format($omzet_bulan_ini, 0, ',', '.'); ?></h2>
                                         <span class="badge text-success" style="font-size: 1.1rem;">
-                                            61% <ion-icon name="arrow-up-outline"></ion-icon>
+                                            <?php echo $persen_kenaikan_omzet; ?>% <ion-icon name="arrow-up-outline"></ion-icon>
                                         </span>
                                         <span>
                                             Dari Bulan Lalu
@@ -202,9 +204,9 @@
                                     <div class="card card-stat shadow">
                                     <div class="card-body">
                                         <p class="mb-3 ms-2 fw-bold">Total pelanggan</p>
-                                        <h2 class="mb-2 ms-2 fw-bold">1001</h2>
+                                        <h2 class="mb-2 ms-2 fw-bold"><?php echo $total_pelanggan; ?></h2>
                                         <span class="badge text-success" style="font-size: 1.1rem;">
-                                            20.00% <ion-icon name="arrow-up-outline"></ion-icon>
+                                            <?php echo $persen_kenaikan_pelanggan; ?>% <ion-icon name="arrow-up-outline"></ion-icon>
                                         </span>
                                         <span>
                                             Dari Bulan Lalu
@@ -235,38 +237,15 @@
                                                 </tr>  
                                             </thead>
                                             <!--Data Produk terlaris-->
-                                            <tbody>
-                                                <tr>
-                                                <td>Domini isi 12</td>
-                                                <td class="font-weight-bold">60k</td>
-                                                <td>6969</td>
-                                                </tr>
-                                                <tr>
-                                                <td>Bomboloni isi 12</td>
-                                                <td class="font-weight-bold">60k</td>
-                                                <td>5034</td>
-                                                </tr>
-                                                <tr>
-                                                <td>Donat Pizza isi 12</td>
-                                                <td class="font-weight-bold">70k</td>
-                                                <td>5001</td>
-                                                </tr>
-                                                <tr>
-                                                <td>Brownies 20x10</td>
-                                                <td class="font-weight-bold">70k</td>
-                                                <td>4589</td>
-                                                </tr>
-                                                <tr>
-                                                <td>Brownies 20x20</td>
-                                                <td class="font-weight-bold">135k</td>
-                                                <td>4138</td>
-                                                </tr>
-                                                <tr>
-                                                <td>Brownies 15x10</td>
-                                                <td class="font-weight-bold">45k</td>
-                                                <td>2367</td>
-                                                </tr>
-                                            </tbody>
+                                                <tbody>
+                                                    <?php while ($row = mysqli_fetch_assoc($result_terlaris)): ?>
+                                                        <tr>
+                                                            <td><?php echo htmlspecialchars($row['nama_produk']); ?></td>
+                                                            <td class="font-weight-bold">Rp<?php echo number_format($row['harga'], 0, ',', '.'); ?></td>
+                                                            <td><?php echo $row['jumlah_terjual']; ?></td>
+                                                        </tr>
+                                                    <?php endwhile; ?>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -318,7 +297,6 @@
 
     <!--Buat chart dari scriptjs -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <!-- ionicon vendor buat icon -->

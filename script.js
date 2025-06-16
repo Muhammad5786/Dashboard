@@ -4,31 +4,6 @@ hamburger.addEventListener("click", function () {
     document.querySelector("#sidebar").classList.toggle("expand");
 });
 
-// ini tabel dari chart.js
-new Chart(document.getElementById("bar-chart-grouped"), {
-    type: 'bar',
-    data: {
-      labels: ["Januari", "Februari", "Maret", "April"],
-      datasets: [
-        {
-          label: "Donat",
-          backgroundColor: "#D77FA1",
-          data: [133,221,783,2478]
-        }, {
-          label: "Kue",
-          backgroundColor: "rgb(150, 17, 98)",
-          data: [408,547,675,734]
-        }
-      ]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Donut & Cake Sales Report'
-      }
-    }
-});
-
 //JavaScript untuk database
 document.addEventListener('DOMContentLoaded', function () {
 var hapusModal = document.getElementById('modalHapusCustomer');
@@ -74,3 +49,35 @@ document.addEventListener('DOMContentLoaded', function () {
         modal.querySelector('#status').value = status;
     });
 });
+
+//Bar chart
+fetch('php/get_chart_data.php') // Ganti path jika perlu
+  .then(response => response.json())
+  .then(data => {
+    const ctx = document.getElementById('bar-chart-grouped').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: data.labels,
+        datasets: [{
+          label: 'Jumlah Terjual',
+          data: data.values,
+          backgroundColor: "rgb(150, 17, 98)",
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1,
+          borderRadius: 5
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 10
+            }
+          }
+        }
+      }
+    });
+  });
