@@ -49,3 +49,28 @@ document.addEventListener('DOMContentLoaded', function () {
         input.value = id;
     });
     });
+
+document.addEventListener('DOMContentLoaded', function () {
+    var modal = document.getElementById('modalEditStatus');
+    if (!modal) {
+        console.error("Modal tidak ditemukan");
+        return;
+    }
+
+    modal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        if (!button) {
+            console.error("Tombol trigger tidak ditemukan");
+            return;
+        }
+
+        var id = button.getAttribute('data-id');
+        var status = button.getAttribute('data-status');
+
+        console.log("Opera GX debug:", { id, status }); // <--- Tambahkan debug ini
+
+        // Isi form
+        modal.querySelector('#id_detail').value = id;
+        modal.querySelector('#status').value = status;
+    });
+});

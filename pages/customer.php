@@ -244,6 +244,44 @@
                                     </div>
                                 </div>
                             </div>
+                           <!-- Modal Edit Pelanggan -->
+                            <div class="modal fade" id="modalEditCustomer" tabindex="-1" aria-labelledby="modalEditCustomerLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <form id="formEditCustomer" method="POST" action="../php/aksi_edit_pelanggan.php">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="modalEditCustomerLabel">Edit Customer</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label for="nama" class="form-label">Nama</label>
+                                            <input type="text" class="form-control" id="nama" name="nama" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="no_hp" class="form-label">No HP</label>
+                                            <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                                            <input type="text" class="form-control" id="deskripsi" name="deskripsi" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="alamat" class="form-label">Alamat</label>
+                                            <input type="text" class="form-control" id="alamat" name="alamat" required>
+                                        </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success">Simpan</button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                            </div>
 
                             <!-- </div> -->
                         </div>
@@ -258,6 +296,7 @@
                                                 <!--Table Head Customer-->
                                                 <thead>
                                                     <tr class="highlight">
+                                                        <!-- <th>No</th> -->
                                                         <th>Nama</th>
                                                         <th>NO HP</th>
                                                         <th>Alamat</th>
@@ -271,6 +310,7 @@
                                                 <tbody>
                                                     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                                                         <tr>
+                                                            <!-- <td><?php echo $row['id']; ?></td> -->
                                                             <td><?php echo $row['nama']; ?></td>
                                                             <td><?php echo $row['no_hp']; ?></td>
                                                             <td><?php echo $row['alamat']; ?></td>
@@ -281,6 +321,14 @@
                                                                     data-bs-target="#modalHapusCustomer"
                                                                     data-id="<?php echo $row['id_pelanggan']; ?>">
                                                                     Hapus
+                                                                </button>
+                                                            <!-- </td>
+                                                            <td> -->
+                                                                <button type="button" class="btn btn-success" 
+                                                                    data-bs-toggle="modal" 
+                                                                    data-bs-target="#modalEditCustomer"
+                                                                    data-id="<?php echo $row['id_pelanggan']; ?>">
+                                                                    Edit
                                                                 </button>
                                                             </td>
                                                         </tr>
