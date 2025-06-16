@@ -41,6 +41,12 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a href="produk.php" class="sidebar-link d-flex align-items-center gap-2">
+                        <ion-icon name="cube"></ion-icon>
+                        <span>Produk</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a href="order.php" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="cart"></ion-icon>
                         <span>Orders</span>
@@ -112,7 +118,9 @@
                     <main class="content px-3 py-4">
                 <div class="container-fluid">
                     <div class="mb-3">
-                        <h3 class="mb-4">Data Stok Bahan</h3>
+                        <h3 class="fw-bold fs-2 mb-2">
+                            Data Stok Bahan
+                        </h3>
                          <p class="fw-normal pb-3">"kemudian akan diberi balasan kepadanya dengan balasan yang paling sempurna."</p>
                         <div class="table-responsive">
                             <div class="col-md-20 grid-margin stretch-card">

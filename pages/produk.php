@@ -43,7 +43,7 @@
                 </li>
                 <li class="sidebar-item">
                     <a href="produk.php" class="sidebar-link d-flex align-items-center gap-2">
-                       <ion-icon name="cube"></ion-icon>
+                        <ion-icon name="cube"></ion-icon>
                         <span>Produk</span>
                     </a>
                 </li>
@@ -66,7 +66,6 @@
                         <span>Notification</span>
                     </a>
                 </li>
-
             </ul>
             <div class="sidebar-footer mb-3">
                 <a href="#" class="sidebar-link d-flex align-items-center gap-2">
@@ -115,6 +114,7 @@
                     </ul>
                 </div>
             </nav>
+
             <!-- Modal Tambah Order -->
             <div class="modal fade" id="modalTambahOrder" tabindex="-1" aria-labelledby="modalTambahOrderLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -181,6 +181,39 @@
             </div>
             </div>
 
+            <!-- Modal Tambah Produk -->
+            <div class="modal fade" id="modalTambahProduk" tabindex="-1" aria-labelledby="modalTambahProdukLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTambahProdukLabel">Tambah Produk</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+
+                <form action="produk_tambah.php" method="POST">
+                    <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="nama_produk" class="form-label">Nama Produk</label>
+                        <input type="text" class="form-control" name="nama_produk" id="nama_produk" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="harga" class="form-label">Harga</label>
+                        <input type="number" class="form-control" name="harga" id="harga" required>
+                    </div>
+                    </div>
+
+                    <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Simpan Produk</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    </div>
+                </form>
+                
+                
+                </div>
+            </div>
+            </div>
+
             <!-- Modal Hapus Order -->
             <div class="modal fade" id="modalHapusOrder" tabindex="-1" aria-labelledby="modalHapusOrderLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -239,19 +272,16 @@
                 <div class="container-fluid">
                     <div class="mb-3">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h3 class="fw-bold fs-2 mb-2">
-                            Customer
+                         <h3 class="fw-bold fs-2 mb-2">
+                            Produk
                         </h3>
                         <div>
-                            <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalTambahOrder">
-                                <i class="bx bx-plus"></i> Tambah Order
-                            </button>
-                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditStatus">
-                            <i class="bx bx-edit"></i> Edit Status
+                            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalTambahProduk"> Tambah Produk
                             </button>
                         </div>
                     </div>
                         <p class="fw-normal pb-3">"Dan Dia telah memberikan kepadamu (keperluanmu) dan segala apa yang kamu mohonkan kepadanya."</p>
+                        
                         <!--Menghubungkan Database-->
                         <?php
                             $sql = "SELECT 
@@ -270,6 +300,7 @@
                                 ORDER BY order_detail.tanggal DESC;";
                             $result = mysqli_query($conn, $sql);
                         ?>
+
                         <div class="table-responsive">
                             <div class="col-md-20 grid-margin stretch-card">
                                 <div class="card">
@@ -277,19 +308,15 @@
                                         <!--Table Laporan list Produk Terlaris-->
                                         <div class="table-responsive rounded">
                                             <table class="table table-striped table-borderless">
-                                            <!--Table Head Produk Terlaris-->
+                                            <!-- Table Head Data Produk -->
                                             <thead>
-                                                <tr class="highlight">
-                                                <th>Tanggal</th>
-                                                <th>Nama (Customer)</th>
-                                                <th>Pesanan</th>
-                                                <th>Jumlah</th>
-                                                <th>Harga Total</th>
-                                                <th>Status</th>
-                                                <th>Via</th>
+                                            <tr class="highlight">
                                                 <th>Aksi</th>
-                                                </tr>  
+                                                <th>Nama</th>
+                                                <th>Harga</th>
+                                            </tr>
                                             </thead>
+
                                             <!--Data stock-->
                                             <thead>
                                             </thead>
