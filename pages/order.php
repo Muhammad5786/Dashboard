@@ -6,6 +6,7 @@
     <title>Dashboard Donat</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
@@ -273,34 +274,33 @@
 
             <!-- Edit Status Order -->
             <div class="modal fade" id="modalEditStatus" tabindex="-1" aria-labelledby="modalEditStatusLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <form id="formEditStatus" method="POST" action="../php/aksi_edit_status.php">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditStatusLabel">Edit Status Order</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form id="formEditStatus" method="POST" action="../php/aksi_edit_status.php">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalEditStatusLabel">Edit Status Order</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Input untuk ID Order -->
+                                <input type="hidden" id="id_detail" name="id_detail">
+                                <div class="mb-3">
+                                    <label for="status" class="form-label">Status Baru</label>
+                                    <select class="form-select" id="status" name="status" required>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Completed">Completed</option>
+                                        <option value="Canceled">Canceled</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">Simpan Perubahan</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="id_detail" class="form-label">ID Order</label>
-                        <input type="number" class="form-control" id="id_detail" name="id_detail" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="status" class="form-label">Status Baru</label>
-                        <select class="form-select" id="status" name="status" required>
-                        <option value="Pending">Pending</option>
-                        <option value="Completed">Completed</option>
-                        <option value="Canceled">Canceled</option>
-                        </select>
-                    </div>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Simpan Perubahan</button>
-                    </div>
-                </form>
                 </div>
             </div>
-            </div>
+
 
 
             <!--Menu Order-->
@@ -312,9 +312,6 @@
                         <div>
                             <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalTambahOrder">
                                 <i class="bx bx-plus"></i> Tambah Order
-                            </button>
-                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditStatus">
-                            <i class="bx bx-edit"></i> Edit Status
                             </button>
                         </div>
                     </div>
@@ -389,10 +386,21 @@
                                                                     data-bs-target="#modalHapusOrder"
                                                                     data-id="<?php echo $row['id_detail']; ?>">
                                                                     Hapus
-                                                                    </button>
-                                                                    <!-- 
-                                                                    <a href="../php/delete_order.php?id=<?php echo $row['id_detail']; ?>" class="btn btn-danger">Hapus</a>
-                                                                    -->
+                                                                </button>
+                                                                <button type="button" class="btn btn-warning"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#modalEditStatus"
+                                                                    onclick="setEditStatus('<?php echo $row['id_detail']; ?>', '<?php echo $row['status']; ?>')">
+                                                                    Edit Status
+                                                                </button>
+
+                                                                <script>
+                                                                function setEditStatus(id, status) {
+                                                                    document.getElementById('id_detail').value = id;
+                                                                    document.getElementById('status').value = status;
+                                                                }
+                                                                </script>
+
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
