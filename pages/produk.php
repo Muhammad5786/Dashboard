@@ -11,13 +11,13 @@
 
 
 </head>
-<body>  
+<body>
     <!--Pembungkus Class Wrapper dengan Display Flex-->
     <div class="wrapper">
         <!--SideBar Web-->
         <aside id="sidebar">
             <!--Logo Icon Hamburger Sidebar-->
-           <div class="d-flex justify-content-between p-4">
+            <div class="d-flex justify-content-between p-4">
                 <div class="sidebar-logo">
                     <a href="../index.php">
                         <img src="../images/logodonat.png" alt="logo putih" class="logo-img">
@@ -117,122 +117,123 @@
 
             <!-- Modal Tambah Order -->
             <div class="modal fade" id="modalTambahOrder" tabindex="-1" aria-labelledby="modalTambahOrderLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form id="formTambahOrder" method="POST" action="../php/aksi_simpan_order.php">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="modalTambahOrderLabel">Tambah Order</h5>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form id="formTambahOrder" method="POST" action="../php/aksi_simpan_order.php">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalTambahOrderLabel">Tambah Order</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
-                      </div>
-                      
-                      <div class="modal-body">
-                        <div class="mb-3">
-                          <label for="tanggal" class="form-label">Tanggal</label>
-                          <input type="date" class="form-control" id="tanggal" name="tanggal" required>
-                        </div>
+                            </div>
 
-                        <div class="mb-3">
-                          <label for="nama" class="form-label">Nama Customer</label>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="tanggal" class="form-label">Tanggal</label>
+                                    <input type="date" class="form-control" id="tanggal" name="tanggal" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Customer</label>
                           <input type="text" class="form-control" id="nama" name="nama_pelanggan" list="listPelanggan" required>
-                          <!-- Pelanggan -->
-                        <datalist id="listPelanggan">
-                        <?php
-                        include '../php/koneksi.php';
-                        $sql = "SELECT nama FROM pelanggan";
-                        $result = mysqli_query($conn, $sql);
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            echo "<option value='" . $row['nama'] . "'>";
-                        }
-                        ?>
-                        </datalist>
-                        </div>
+                                    <!-- Pelanggan -->
+                                    <datalist id="listPelanggan">
+                                        <?php
+                                        include '../php/koneksi.php';
+                                        $sql = "SELECT nama FROM pelanggan";
+                                        $result = mysqli_query($conn, $sql);
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            echo "<option value='" . $row['nama'] . "'>";
+                                        }
+                                        ?>
+                                    </datalist>
+                                </div>
 
-                        <div class="mb-3">
-                          <label for="pesanan" class="form-label">Pesanan</label>
+                                <div class="mb-3">
+                                    <label for="pesanan" class="form-label">Pesanan</label>
                           <input type="text" class="form-control" id="pesanan" name="nama_produk" list="listProduk" required>
-                          <!-- Produk -->
-                            <datalist id="listProduk">
-                            <?php
-                            $sql = "SELECT DISTINCT nama FROM produk";
-                            $result = mysqli_query($conn, $sql);
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                echo "<option value='" . $row['nama'] . "'>";
-                            }
-                            ?>
-                            </datalist>
-                        </div>
+                                    <!-- Produk -->
+                                    <datalist id="listProduk">
+                                        <?php
+                                        $sql = "SELECT DISTINCT nama FROM produk";
+                                        $result = mysqli_query($conn, $sql);
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            echo "<option value='" . $row['nama'] . "'>";
+                                        }
+                                        ?>
+                                    </datalist>
+                                </div>
 
-                        <div class="mb-3">
-                          <label for="jumlah" class="form-label">Jumlah</label>
-                          <input type="number" class="form-control" id="jumlah" name="jumlah" required>
-                        </div>
-                        
-                        <div class="mb-3">
-                          <label for="via" class="form-label">Via</label>
+                                <div class="mb-3">
+                                    <label for="jumlah" class="form-label">Jumlah</label>
+                                    <input type="number" class="form-control" id="jumlah" name="jumlah" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="via" class="form-label">Via</label>
                           <input type="text" class="form-control" id="via" placeholder="Contoh: Cash, Transfer, dll" name="via" required>
-                        </div>
-                      </div>
+                                </div>
+                            </div>
 
-                      <div class="modal-footer">
-                        <button type="submit" class="btn btn-success">Simpan</button>
-                      </div>
-                    </form>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">Simpan</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
             </div>
 
             <!-- Modal Tambah Produk -->
             <div class="modal fade" id="modalTambahProduk" tabindex="-1" aria-labelledby="modalTambahProdukLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalTambahProdukLabel">Tambah Produk</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
-                </div>
+                <div class="modal-dialog">
+                    <div class="modal-content">
 
-                <form action="produk_tambah.php" method="POST">
-                    <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="nama_produk" class="form-label">Nama Produk</label>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTambahProdukLabel">Tambah Produk</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                        </div>
+
+                        <form action="produk_tambah.php" method="POST">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="nama_produk" class="form-label">Nama Produk</label>
                         <input type="text" class="form-control" name="nama_produk" id="nama_produk" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="harga" class="form-label">Harga</label>
-                        <input type="number" class="form-control" name="harga" id="harga" required>
-                    </div>
-                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="harga" class="form-label">Harga</label>
+                                    <input type="number" class="form-control" name="harga" id="harga" required>
+                                </div>
+                            </div>
 
-                    <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan Produk</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Simpan Produk</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            </div>
+                        </form>
+
+
                     </div>
-                </form>
-                
-                
                 </div>
-            </div>
             </div>
 
             <!-- Modal Hapus Order -->
-            <div class="modal fade" id="modalHapusOrder" tabindex="-1" aria-labelledby="modalHapusOrderLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Konfirmasi Hapus Order</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+            <div class="modal fade" id="modalHapusProduk" tabindex="-1" aria-labelledby="modalHapusProdukLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Konfirmasi Hapus Produk</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                        </div>
+                        <div class="modal-body">
+                            Apakah Anda yakin ingin menghapus Produk ini?
+                        </div>
+                        <div class="modal-footer">
+                            <form method="GET" action="../php/delete_produk.php">
+                                <input type="hidden" name="id" id="orderIdToDelete">
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    Apakah Anda yakin ingin menghapus order ini?
-                </div>
-                <div class="modal-footer">
-                    <form method="GET" action="../php/delete_order.php">
-                    <input type="hidden" name="id" id="orderIdToDelete">
-                    <button type="submit" class="btn btn-danger">Hapus</button>
-                    </form>
-                </div>
-                </div>
-            </div>
             </div>
 
             <!-- Edit Status Order -->
@@ -272,19 +273,31 @@
                 <div class="container-fluid">
                     <div class="mb-3">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                         <h3 class="fw-bold fs-2 mb-2">
-                            Produk
-                        </h3>
-                        <div>
-                            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalTambahProduk"> Tambah Produk
-                            </button>
+                            <h3 class="fw-bold fs-2 mb-2">
+                                Produk
+                            </h3>
+                            <div>
+                                <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal"
+                                    data-bs-target="#modalTambahProduk"> Tambah Produk
+                                </button>
+                                <button type="button" class="btn btn-danger" data-bs-target="#modalHapusProduk"
+                                    data-id="<?php echo $row['id_pelanggan']; ?>">
+                                    Hapus
+                                </button>
+                                
+                                <!-- </td>
+                                                            <td> -->
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                    data-bs-target="#modalEditProduk" data-id="<?php echo $row['id_pelanggan']; ?>">
+                                    Edit
+                                </button>
                         </div>
                     </div>
                         <p class="fw-normal pb-3">"Dan Dia telah memberikan kepadamu (keperluanmu) dan segala apa yang kamu mohonkan kepadanya."</p>
-                        
+
                         <!--Menghubungkan Database-->
                         <?php
-                            $sql = "SELECT 
+                        $sql = "SELECT 
                                 order_detail.id_detail,
                                 order_detail.tanggal,
                                 order_detail.jumlah,
@@ -298,7 +311,7 @@
                                 JOIN pelanggan ON order_detail.id_pelanggan = pelanggan.id_pelanggan
                                 JOIN produk ON order_detail.id_produk = produk.id_produk
                                 ORDER BY order_detail.tanggal DESC;";
-                            $result = mysqli_query($conn, $sql);
+                        $result = mysqli_query($conn, $sql);
                         ?>
 
                         <div class="table-responsive">
@@ -308,20 +321,19 @@
                                         <!--Table Laporan list Produk Terlaris-->
                                         <div class="table-responsive rounded">
                                             <table class="table table-striped table-borderless">
-                                            <!-- Table Head Data Produk -->
-                                            <thead>
-                                            <tr class="highlight">
-                                                <th>Aksi</th>
-                                                <th>Nama</th>
-                                                <th>Harga</th>
-                                            </tr>
-                                            </thead>
+                                                <!-- Table Head Data Produk -->
+                                                <thead>
+                                                    <tr class="highlight">
+                                                        <th>Nama</th>
+                                                        <th>Harga</th>
+                                                    </tr>
+                                                </thead>
 
-                                            <!--Data stock-->
-                                            <thead>
-                                            </thead>
-                                            <tbody>
-                                                <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                                                <!--Data stock-->
+                                                <thead>
+                                                </thead>
+                                                <tbody>
+                                                    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                                                         <tr>
                                                             <td><?php echo $row['tanggal']; ?></td>
                                                             <td><?php echo $row['nama_pelanggan']; ?></td>
@@ -356,7 +368,7 @@
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
-                                            </tbody>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -403,5 +415,5 @@
     <!-- ionicon vendor buat icon -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body> 
+</body>
 </html>
