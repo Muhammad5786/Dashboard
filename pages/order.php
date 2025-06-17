@@ -306,21 +306,37 @@
                     </div>
                 </div>
             </div>
-
-
-
             <!--Menu Order-->
             <main class="content px-3 py-4">
                 <div class="container-fluid">
                     <div class="mb-3">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                         <h3 class="fw-bold fs-2 mb-2">
-                            Customer
+                            Order
                         </h3>
                         <div>
                             <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalTambahOrder">
                                 <i class="bx bx-plus"></i> Tambah Order
-                            </button>
+                            </button>                            
+                            <button type="button" class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalHapusOrder"
+                                    data-id="<?php echo $row['id_detail']; ?>">
+                                    Hapus
+                                    </button>
+                                    <button type="button" class="btn btn-warning"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalEditStatus"
+                                    onclick="setEditStatus('<?php echo $row['id_detail']; ?>', '<?php echo $row['status']; ?>')">
+                                    Edit Status
+                                    </button>
+                                    <script>
+                                    function setEditStatus(id, status) 
+                                    {
+                                    document.getElementById('id_detail').value = id;
+                                    document.getElementById('status').value = status;
+                                    }
+                                    </script>               
                         </div>
                     </div>
                         <p class="fw-normal pb-3">"Dan Dia telah memberikan kepadamu (keperluanmu) dan segala apa yang kamu mohonkan kepadanya."</p>
@@ -359,7 +375,6 @@
                                                 <th>Harga Total</th>
                                                 <th>Status</th>
                                                 <th>Via</th>
-                                                <th>Aksi</th>
                                                 </tr>  
                                             </thead>
                                             <!--Data stock-->
@@ -388,28 +403,7 @@
                                                                 </div>
                                                             </td>
                                                             <td><?php echo $row['via']; ?></td>
-                                                            <td>
-                                                                <button type="button" class="btn btn-danger"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#modalHapusOrder"
-                                                                    data-id="<?php echo $row['id_detail']; ?>">
-                                                                    Hapus
-                                                                </button>
-                                                                <button type="button" class="btn btn-warning"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#modalEditStatus"
-                                                                    onclick="setEditStatus('<?php echo $row['id_detail']; ?>', '<?php echo $row['status']; ?>')">
-                                                                    Edit Status
-                                                                </button>
-
-                                                                <script>
-                                                                function setEditStatus(id, status) {
-                                                                    document.getElementById('id_detail').value = id;
-                                                                    document.getElementById('status').value = status;
-                                                                }
-                                                                </script>
-
-                                                            </td>
+                                                            
                                                         </tr>
                                                     <?php } ?>
                                             </tbody>

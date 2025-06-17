@@ -203,6 +203,20 @@
                                     data-bs-target="#modalTambahCustomer">
                                     <i class="bx bx-plus"></i> Tambah Customer
                                 </button>
+                                <button type="button" class="btn btn-danger" 
+                                                                    data-bs-toggle="modal" 
+                                                                    data-bs-target="#modalHapusCustomer"
+                                                                    data-id="<?php echo $row['id_pelanggan']; ?>">
+                                                                    Hapus
+                                                                </button>
+                                                            <!-- </td>
+                                                            <td> -->
+                                                                <button type="button" class="btn btn-warning" 
+                                                                    data-bs-toggle="modal" 
+                                                                    data-bs-target="#modalEditCustomer"
+                                                                    data-id="<?php echo $row['id_pelanggan']; ?>">
+                                                                    Edit
+                                                                </button>
                             </div>
                             <!-- <div class=""> -->
                             <div class="modal fade" id="modalTambahCustomer" tabindex="-1"
@@ -316,7 +330,6 @@
                                                         <th>NO HP</th>
                                                         <th>Alamat</th>
                                                         <th>Deskripsi</th>
-                                                        <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <!--Data stock-->
@@ -330,22 +343,7 @@
                                                             <td><?php echo $row['no_hp']; ?></td>
                                                             <td><?php echo $row['alamat']; ?></td>
                                                             <td><?php echo $row['deskripsi']; ?></td>
-                                                            <td>
-                                                                <button type="button" class="btn btn-danger" 
-                                                                    data-bs-toggle="modal" 
-                                                                    data-bs-target="#modalHapusCustomer"
-                                                                    data-id="<?php echo $row['id_pelanggan']; ?>">
-                                                                    Hapus
-                                                                </button>
-                                                            <!-- </td>
-                                                            <td> -->
-                                                                <button type="button" class="btn btn-success" 
-                                                                    data-bs-toggle="modal" 
-                                                                    data-bs-target="#modalEditCustomer"
-                                                                    data-id="<?php echo $row['id_pelanggan']; ?>">
-                                                                    Edit
-                                                                </button>
-                                                            </td>
+                                                            
                                                         </tr>
                                                     <?php } ?>
 
