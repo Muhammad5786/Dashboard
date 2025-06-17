@@ -39,6 +39,12 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a href="produk.php" class="sidebar-link d-flex align-items-center gap-2">
+                        <ion-icon name="cube"></ion-icon>
+                        <span>Produk</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a href="pages/order.php" class="sidebar-link d-flex align-items-center gap-2">
                         <ion-icon name="cart"></ion-icon>
                         <span>Orders</span>
