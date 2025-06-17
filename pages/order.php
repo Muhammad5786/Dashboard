@@ -363,8 +363,6 @@
                                                 </tr>  
                                             </thead>
                                             <!--Data stock-->
-                                            <thead>
-                                            </thead>
                                             <tbody>
                                                 <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                                                         <tr>
@@ -408,7 +406,6 @@
                                                                     document.getElementById('status').value = status;
                                                                 }
                                                                 </script>
-
                                                             </td>
                                                         </tr>
                                                     <?php } ?>

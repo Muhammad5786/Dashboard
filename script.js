@@ -81,3 +81,22 @@ fetch('php/get_chart_data.php') // Ganti path jika perlu
       }
     });
   });
+
+const modal = document.getElementById('modalEditCustomer');
+  modal.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget;
+
+    // Ambil data dari tombol
+    const id = button.getAttribute('data-id');
+    const nama = button.getAttribute('data-nama');
+    const noHp = button.getAttribute('data-no_hp');
+    const deskripsi = button.getAttribute('data-deskripsi');
+    const alamat = button.getAttribute('data-alamat');
+
+    // Set data ke form modal
+    modal.querySelector('#id_pelanggan').value = id;
+    modal.querySelector('#nama').value = nama;
+    modal.querySelector('#no_hp').value = noHp;
+    modal.querySelector('#deskripsi').value = deskripsi;
+    modal.querySelector('#alamat').value = alamat;
+  });

@@ -205,6 +205,7 @@
                                 </button>
                             </div>
                             <!-- <div class=""> -->
+                                <!-- Tambah Data -->
                             <div class="modal fade" id="modalTambahCustomer" tabindex="-1"
                                 aria-labelledby="modalTambahCustomerLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -240,6 +241,48 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Modal Edit -->
+                            <div class="modal fade" id="modalEditCustomer" tabindex="-1" aria-labelledby="modalEditCustomerLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <form id="formEditCustomer" method="POST" action="../php/aksi_edit_pelanggan.php">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="modalEditCustomerLabel">Edit Customer</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                    <!-- Input hidden untuk ID -->
+                                    <input type="hidden" id="id_pelanggan" name="id_pelanggan">
+
+                                    <div class="mb-3">
+                                        <label for="nama" class="form-label">Nama</label>
+                                        <input type="text" class="form-control" id="nama" name="nama" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="no_hp" class="form-label">No HP</label>
+                                        <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                                        <input type="text" class="form-control" id="deskripsi" name="deskripsi" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="alamat" class="form-label">Alamat</label>
+                                        <input type="text" class="form-control" id="alamat" name="alamat" required>
+                                    </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success">Simpan</button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                            </div>
                             <div class="modal fade" id="modalHapusCustomer" tabindex="-1" aria-labelledby="modalHapusCustomerLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -261,41 +304,37 @@
                             </div>
                            <!-- Modal Edit Pelanggan -->
                             <div class="modal fade" id="modalEditCustomer" tabindex="-1" aria-labelledby="modalEditCustomerLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                <form id="formEditCustomer" method="POST" action="../php/aksi_edit_pelanggan.php">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="modalEditCustomerLabel">Edit Customer</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form id="formEditCustomer" method="POST" action="../php/aksi_edit_pelanggan.php">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalEditCustomerLabel">Edit Customer</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="nama" class="form-label">Nama</label>
+                                                    <input type="text" class="form-control" id="nama" name="nama" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="no_hp" class="form-label">No HP</label>
+                                                    <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="deskripsi" class="form-label">Deskripsi</label>
+                                                    <input type="text" class="form-control" id="deskripsi" name="deskripsi" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="alamat" class="form-label">Alamat</label>
+                                                    <input type="text" class="form-control" id="alamat" name="alamat" required>
+                                                </div>
+                                            </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-success">Simpan</button>
+                                                </div>
+                                        </form>
                                     </div>
-                                    <div class="modal-body">
-                                        <div class="mb-3">
-                                            <label for="nama" class="form-label">Nama</label>
-                                            <input type="text" class="form-control" id="nama" name="nama" required>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="no_hp" class="form-label">No HP</label>
-                                            <input type="text" class="form-control" id="no_hp" name="no_hp" required>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="deskripsi" class="form-label">Deskripsi</label>
-                                            <input type="text" class="form-control" id="deskripsi" name="deskripsi" required>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="alamat" class="form-label">Alamat</label>
-                                            <input type="text" class="form-control" id="alamat" name="alamat" required>
-                                        </div>
-                                        </div>
-
-                                        <div class="modal-footer">
-                                        <button type="submit" class="btn btn-success">Simpan</button>
-                                    </div>
-                                </form>
                                 </div>
-                            </div>
                             </div>
 
                             <!-- </div> -->
@@ -337,18 +376,19 @@
                                                                     data-id="<?php echo $row['id_pelanggan']; ?>">
                                                                     Hapus
                                                                 </button>
-                                                            <!-- </td>
-                                                            <td> -->
-                                                                <button type="button" class="btn btn-success" 
-                                                                    data-bs-toggle="modal" 
-                                                                    data-bs-target="#modalEditCustomer"
-                                                                    data-id="<?php echo $row['id_pelanggan']; ?>">
+                                                                <button type="button" class="btn btn-warning" 
+                                                                        data-bs-toggle="modal" 
+                                                                        data-bs-target="#modalEditCustomer"
+                                                                        data-id="<?php echo $row['id_pelanggan']; ?>"
+                                                                        data-nama="<?php echo $row['nama']; ?>"
+                                                                        data-no_hp="<?php echo $row['no_hp']; ?>"
+                                                                        data-deskripsi="<?php echo $row['deskripsi']; ?>"
+                                                                        data-alamat="<?php echo $row['alamat']; ?>">
                                                                     Edit
                                                                 </button>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
-
                                                 </tbody>
                                             </table>
                                         </div>
@@ -390,7 +430,6 @@
 
     <!--Buat chart dari scriptjs -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
