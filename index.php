@@ -59,12 +59,6 @@
                         <span>Stock</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link d-flex align-items-center gap-2">
-                        <ion-icon name="notifications"></ion-icon>
-                        <span>Notification</span>
-                    </a>
-                </li>
             </ul>
             <div class="sidebar-footer mb-3">
                 <a href="#" class="sidebar-link d-flex align-items-center gap-2">
@@ -78,13 +72,19 @@
         <div class="main">
             <!--Navbar-->
             <nav class="navbar navbar-expand px-4 py-3">
-                <!--Navbar samping Kanan: Notification dan Foto Profile-->
+                <!-- Logo kiri -->
+                <div class="d-flex align-items-center me-3">
+                    <a href="index.php">
+                        <img src="images/logodonat1.png" alt="Logo Donat" class="logo-navbar-toggle">
+                    </a>
+                </div>
+                <!--Navbar samping Kanan: Foto Profile-->
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ms-auto">
-                        <!--Notification-->
-                        <button class="btn btn-rounded me-2" type="button" style="color: rgb(150, 17, 98);">
-                            <ion-icon name="notifications"></ion-icon>
-                        </button>
+                        <!--Username-->
+                        <li>
+                            <p class="mt-2 me-3 fw-bold">Atmin</p>
+                        </li>
                         <!--Foto Profile-->
                         <li class="nav-item dropdown">
                             <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">

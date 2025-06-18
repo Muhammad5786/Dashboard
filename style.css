@@ -235,6 +235,26 @@ a.sidebar-link:hover span {
     width: 40px;
 }
 
+/* Default: tampilkan logo */
+.logo-navbar-toggle {
+  display: block;
+  height: 40px;
+  width: auto;
+  transition: all 0.5s ease;
+}
+
+/* Sembunyikan logo jika sidebar dalam keadaan expand */
+#sidebar.expand ~ .main .logo-navbar-toggle {
+  display: none;
+}
+
+.logo-navbar-img {
+  height: 40px;
+  width: auto;
+  transition: all 0.5s ease-in-out;
+}
+
+
 /* .card.card-light-blue{
     background: #E6B2C6;
     color: #ffffff;
