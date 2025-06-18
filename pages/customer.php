@@ -213,8 +213,8 @@
                                                         required>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="no_id" class="form-label">No HP</label>
-                                                    <input type="text" class="form-control" id="no_hp" name="no_hp"
+                                                    <label for="no_hp" class="form-label">No HP</label>
+                                                    <input type="number" class="form-control" id="no_hp" name="no_hp"
                                                         required>
                                                 </div>
                                                 <div class="mb-3">
