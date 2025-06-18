@@ -468,7 +468,10 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#tabelOrder').DataTable();
+            $('#tabelOrder').DataTable({
+                pageLength: 5, 
+                lengthMenu: [5, 10, 25, 50] 
+            });
         });
     </script>
 
