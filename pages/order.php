@@ -378,7 +378,7 @@
                                     <div class="card-body">
                                         <!--Table Laporan list Produk Terlaris-->
                                         <div class="table-responsive rounded">
-                                            <table id="tableOrder" class="table table-striped table-borderless">
+                                            <table id="tabelOrder" class="table table-striped table-borderless py-4">
                                                 <!--Table Head Produk Terlaris-->
                                                 <thead>
                                                     <tr class="highlight">
@@ -484,7 +484,7 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#tableOrder').DataTable();
+            $('#tabelOrder').DataTable();
         });
     </script>
 
