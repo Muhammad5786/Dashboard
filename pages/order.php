@@ -143,9 +143,15 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="pesanan" class="form-label">Pesanan</label>
-                                    <input type="text" class="form-control" id="pesanan" name="nama_produk"
-                                        list="listProduk" required>
+                                    <label for="pesanan" class="form-label" id="lblPesanan">Pesanan</label>
+                                    <div class="mb-3">
+                                        <!-- <label for="status" class="form-label">Status Baru</label> -->
+                                        <select class="form-select" id="select-pesanan" name="nama_produk" required>
+                                            <option value="Brownis">Brownis</option>
+                                            <option value="Roll Cake">Roll Cake</option>
+                                            <option value="Donat">Donat</option>
+                                        </select>
+                                    </div>
                                     <!-- Produk -->
                                     <datalist id="listProduk">
                                         <?php
@@ -163,97 +169,72 @@
                                     <input type="number" class="form-control" id="jumlah" name="jumlah" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="via" class="form-label">Via</label>
-                                    <input type="text" class="form-control" id="via"
-                                        placeholder="Contoh: Cash, Transfer, dll" name="via" required>
+                                    <label for="pesanan" class="form-label" id="lblPesanan">Pesanan</label>
+                                    <div class="mb-3">
+                                        <!-- <label for="status" class="form-label">Status Baru</label> -->
+                                        <select class="form-select" id="id-via" name="via" required>
+                                            <option value="Cash">Cash</option>
+                                            <option value="Transfer">Transfer</option>
+                                            <option value="QRIS">QRIS</option>
+                                        </select>
+                                    </div>
                                 </div>
 
 
-                                <div class="mb-3">
+                                <div class="mb-3 d-none" name="container-topping" id="id-topping">
                                     <label for="toping" class="form-label">Toping</label>
                                     <div class="form-check">
                                         <div class="d-flex">
                                             <div class="w-50">
-                                                <div class="w-50">
-                                                    <div class="form-check py-2">
-                                                        <input class="form-check-input" type="checkbox" value="Keju"
-                                                            id="check1">
-                                                        <label class="form-check-label" for="check1">Keju</label>
-                                                    </div>
-                                                    <div class="form-check py-2">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            value="Gula Halus" id="check2">
-                                                        <label class="form-check-label" for="check2">Gula Halus</label>
-                                                    </div>
-                                                    <div class="form-check py-2">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            value="Selai Stroberi" id="check3">
-                                                        <label class="form-check-label" for="check3">Selai
-                                                            Stroberi</label>
-                                                    </div>
+                                                <div class="form-check py-2">
+                                                    <input class="form-check-input" type="checkbox" value="Glaze Coklat"
+                                                        id="check1">
+                                                    <label class="form-check-label" for="check1">Glaze Coklat</label>
                                                 </div>
-
-                                                <div class="w-50">
-                                                    <div class="form-check py-2">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            value="Matcha Glaze" id="check4">
-                                                        <label class="form-check-label" for="check4">Matcha
-                                                            Glaze</label>
-                                                    </div>
-                                                    <div class="form-check py-2">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            value="Krim Keju" id="check5">
-                                                        <label class="form-check-label" for="check5">Krim Keju</label>
-                                                    </div>
-                                                    <div class="form-check py-2">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            value="Puree Mangga" id="check6">
-                                                        <label class="form-check-label" for="check6">Puree
-                                                            Mangga</label>
-                                                    </div>
+                                                <div class="form-check py-2">
+                                                    <input class="form-check-input" type="checkbox" value="Glaze Putih"
+                                                        id="check2">
+                                                    <label class="form-check-label" for="check2">Glaze Putih</label>
+                                                </div>
+                                                <div class="form-check py-2">
+                                                    <input class="form-check-input" type="checkbox" value="Meiss Tulip"
+                                                        id="check3">
+                                                    <label class="form-check-label" for="check3">Meiss
+                                                        Tulip</label>
                                                 </div>
                                             </div>
 
                                             <div class="w-50">
-                                                <div class="w-50">
-                                                    <div class="form-check py-2">
-                                                        <input class="form-check-input" type="checkbox" value="Madu"
-                                                            id="check7">
-                                                        <label class="form-check-label" for="check7">Madu</label>
-                                                    </div>
-                                                    <div class="form-check py-2">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            value="Keju Parut" id="check8">
-                                                        <label class="form-check-label" for="check8">Keju Parut</label>
-                                                    </div>
-                                                    <div class="form-check py-2">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            value="Oreo Crumbs" id="check9">
-                                                        <label class="form-check-label" for="check9">Oreo Crumbs</label>
-                                                    </div>
+                                                <div class="form-check py-2">
+                                                    <input class="form-check-input" type="checkbox" value="Kacang Oven"
+                                                        id="check4">
+                                                    <label class="form-check-label" for="check4">Kacang
+                                                        Oven</label>
                                                 </div>
-
-                                                <div class="w-50">
-                                                    <div class="form-check py-2">
-                                                        <input class="form-check-input" type="checkbox" value="Nutella"
-                                                            id="check10">
-                                                        <label class="form-check-label" for="check10">Nutella</label>
-                                                    </div>
-                                                    <div class="form-check py-2">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            value="Tiramisu Powder" id="check11">
-                                                        <label class="form-check-label" for="check11">Tiramisu
-                                                            Powder</label>
-                                                    </div>
-                                                    <div class="form-check py-2">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            value="Red Velvet Crumbs" id="check12">
-                                                        <label class="form-check-label" for="check12">Red Velvet
-                                                            Crumbs</label>
-                                                    </div>
+                                                <div class="form-check py-2">
+                                                    <input class="form-check-input" type="checkbox" value="Almond"
+                                                        id="check5">
+                                                    <label class="form-check-label" for="check5">Almond</label>
+                                                </div>
+                                                <div class="form-check py-2">
+                                                    <input class="form-check-input" type="checkbox" value="Chocochip"
+                                                        id="check6">
+                                                    <label class="form-check-label" for="check6">Chocochip</label>
                                                 </div>
                                             </div>
 
+                                            <div class="w-50">
+                                                <div class="form-check py-2">
+                                                    <input class="form-check-input" type="checkbox" value="Keju"
+                                                        id="check7">
+                                                    <label class="form-check-label" for="check7">Keju</label>
+                                                </div>
+                                                <div class="form-check py-2">
+                                                    <input class="form-check-input" type="checkbox" value="Kacang Mete"
+                                                        id="check8">
+                                                    <label class="form-check-label" for="check8">Kacang Mete</label>
+                                                </div>
+                                            </div>
                                         </div>
 
                                     </div>
@@ -329,19 +310,22 @@
             <main class="content px-3 py-4">
                 <div class="container-fluid">
                     <div class="mb-3">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="d-flex justify-content-between align-items-center">
                             <h3 class="fw-bold fs-2 mb-2">
                                 Order
                             </h3>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="fw-normal my-3">"Dan Dia telah memberikan kepadamu (keperluanmu) dan segala apa
+                                yang kamu mohonkan kepadanya."</p>
                             <div>
                                 <button class="btn btn-primary me-2" data-bs-toggle="modal"
                                     data-bs-target="#modalTambahOrder">
                                     <i class="bx bx-plus"></i> Tambah Order
                                 </button>
                             </div>
+
                         </div>
-                        <p class="fw-normal pb-3">"Dan Dia telah memberikan kepadamu (keperluanmu) dan segala apa yang
-                            kamu mohonkan kepadanya."</p>
                         <!--Menghubungkan Database-->
                         <?php
                         $sql = "SELECT 
@@ -475,6 +459,23 @@
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Script buat Logika Menu Dropdown Toping -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pesanan = document.querySelector('#select-pesanan');
+            const toping = document.querySelector('#id-topping');
+            const labelPesanan = document.getElementById('lblPesanan'); // pastikan ini hanya sekali
+
+            pesanan.addEventListener('change', () => {
+                if (pesanan.value === 'Donat') {
+                    toping.classList.remove('d-none');
+                } else {
+                    toping.classList.add('d-none');
+                }
+            });
+        });
+    </script>
 
     <!-- Bootstrap Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>

@@ -114,9 +114,12 @@
                         <h3 class="fw-bold fs-2 mb-2">
                             Selamat datang, (Nama)!
                         </h3>
-                        <?php
+                        <div hidden>\
+                            <?php
                         include("php/dashboard.php");
                         ?>
+                        </div>
+                    
                         <!--TagLine Website-->
                         <p class="fw-normal pb-3">"Dan Dia memberinya rezeki dari arah yang tidak disangka-sangkanya."
                             (65:3)</p>
@@ -171,7 +174,7 @@
                                                     <ion-icon name="arrow-up-outline"></ion-icon>
                                                 </span>
                                                 <span>
-                                                    Dari Bulan Lalu
+                                                    Dari Bulan Ini
                                                 </span>
                                             </div>
                                         </div>
@@ -187,7 +190,7 @@
                                                         name="arrow-up-outline"></ion-icon>
                                                 </span>
                                                 <span>
-                                                    Dari Bulan Lalu
+                                                    Dari Bulan Ini
                                                 </span>
                                             </div>
                                         </div>
@@ -207,7 +210,7 @@
                                                         name="arrow-up-outline"></ion-icon>
                                                 </span>
                                                 <span>
-                                                    Dari Bulan Lalu
+                                                    Dari Bulan Ini
                                                 </span>
                                             </div>
                                         </div>
@@ -223,7 +226,7 @@
                                                         name="arrow-up-outline"></ion-icon>
                                                 </span>
                                                 <span>
-                                                    Dari Bulan Lalu
+                                                    Dari Bulan Ini
                                                 </span>
                                             </div>
                                         </div>
