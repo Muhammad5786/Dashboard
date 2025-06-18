@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Donat</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 
 </head>
+
 <body>
     <!--Pembungkus Class Wrapper dengan Display Flex-->
     <div class="wrapper">
@@ -82,7 +85,8 @@
                 <!--Nabar samping Kiri: Form Input Navbar (Search)-->
                 <form action="#" class="d-none d-sm-inline-block">
                     <div class="input-group input-group-navbar">
-                        <input type="text" class="form-control border-0 rounded pe-0" style="background-color:rgb(214, 214, 214);"placeholder="Search.." aria-label="Search">
+                        <input type="text" class="form-control border-0 rounded pe-0"
+                            style="background-color:rgb(214, 214, 214);" placeholder="Search.." aria-label="Search">
                         <button class="btn btn-rounded" type="button">
                             <ion-icon name="search-outline"></ion-icon>
                         </button>
@@ -98,7 +102,8 @@
                         <!--Foto Profile-->
                         <li class="nav-item dropdown">
                             <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                <img src="../images/mybini.jpeg" class="avatar img-fluid rounded-circle" alt="user avatar">
+                                <img src="../images/mybini.jpeg" class="avatar img-fluid rounded-circle"
+                                    alt="user avatar">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
                                 <a href="#" class="dropdown-item">
@@ -115,14 +120,16 @@
                 </div>
             </nav>
 
-            <!-- Modal Tambah Order -->
-            <div class="modal fade" id="modalTambahOrder" tabindex="-1" aria-labelledby="modalTambahOrderLabel" aria-hidden="true">
+            <!-- Modal Tambah Produk -->
+            <div class="modal fade" id="modalTambahOrder" tabindex="-1" aria-labelledby="modalTambahOrderLabel"
+                aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form id="formTambahOrder" method="POST" action="../php/aksi_simpan_order.php">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="modalTambahOrderLabel">Tambah Order</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Tutup"></button>
                             </div>
 
                             <div class="modal-body">
@@ -133,7 +140,8 @@
 
                                 <div class="mb-3">
                                     <label for="nama" class="form-label">Nama Customer</label>
-                          <input type="text" class="form-control" id="nama" name="nama_pelanggan" list="listPelanggan" required>
+                                    <input type="text" class="form-control" id="nama" name="nama_pelanggan"
+                                        list="listPelanggan" required>
                                     <!-- Pelanggan -->
                                     <datalist id="listPelanggan">
                                         <?php
@@ -149,7 +157,8 @@
 
                                 <div class="mb-3">
                                     <label for="pesanan" class="form-label">Pesanan</label>
-                          <input type="text" class="form-control" id="pesanan" name="nama_produk" list="listProduk" required>
+                                    <input type="text" class="form-control" id="pesanan" name="nama_produk"
+                                        list="listProduk" required>
                                     <!-- Produk -->
                                     <datalist id="listProduk">
                                         <?php
@@ -169,7 +178,8 @@
 
                                 <div class="mb-3">
                                     <label for="via" class="form-label">Via</label>
-                          <input type="text" class="form-control" id="via" placeholder="Contoh: Cash, Transfer, dll" name="via" required>
+                                    <input type="text" class="form-control" id="via"
+                                        placeholder="Contoh: Cash, Transfer, dll" name="via" required>
                                 </div>
                             </div>
 
@@ -182,7 +192,8 @@
             </div>
 
             <!-- Modal Tambah Produk -->
-            <div class="modal fade" id="modalTambahProduk" tabindex="-1" aria-labelledby="modalTambahProdukLabel" aria-hidden="true">
+            <div class="modal fade" id="modalTambahProduk" tabindex="-1" aria-labelledby="modalTambahProdukLabel"
+                aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
 
@@ -195,7 +206,8 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="nama_produk" class="form-label">Nama Produk</label>
-                        <input type="text" class="form-control" name="nama_produk" id="nama_produk" required>
+                                    <input type="text" class="form-control" name="nama_produk" id="nama_produk"
+                                        required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="harga" class="form-label">Harga</label>
@@ -215,19 +227,19 @@
             </div>
 
             <!-- Modal Hapus Order -->
-            <div class="modal fade" id="modalHapusProduk" tabindex="-1" aria-labelledby="modalHapusProdukLabel"
+            <div class="modal fade" id="modalHapusOrder" tabindex="-1" aria-labelledby="modalHapusOrderLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Konfirmasi Hapus Produk</h5>
+                            <h5 class="modal-title">Konfirmasi Hapus Order</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
                         </div>
                         <div class="modal-body">
                             Apakah Anda yakin ingin menghapus Produk ini?
                         </div>
                         <div class="modal-footer">
-                            <form method="GET" action="../php/delete_produk.php">
+                            <form method="GET" action="../php/delete_order.php">
                                 <input type="hidden" name="id" id="orderIdToDelete">
                                 <button type="submit" class="btn btn-danger">Hapus</button>
                             </form>
@@ -236,64 +248,58 @@
                 </div>
             </div>
 
-            <!-- Edit Status Order -->
-            <div class="modal fade" id="modalEditStatus" tabindex="-1" aria-labelledby="modalEditStatusLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <form id="formEditStatus" method="POST" action="../php/aksi_edit_status.php">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditStatusLabel">Edit Status Order</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
-                    </div>
-                    <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="id_detail" class="form-label">ID Order</label>
-                        <input type="number" class="form-control" id="id_detail" name="id_detail" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="status" class="form-label">Status Baru</label>
-                        <select class="form-select" id="status" name="status" required>
-                        <option value="Pending">Pending</option>
-                        <option value="Completed">Completed</option>
-                        <option value="Canceled">Canceled</option>
-                        </select>
-                    </div>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Simpan Perubahan</button>
-                    </div>
-                </form>
-                </div>
-            </div>
-            </div>
 
 
-            <!--Menu Order-->
+            <!--Menu Produk-->
             <main class="content px-3 py-4">
                 <div class="container-fluid">
                     <div class="mb-3">
+                        <h3 class="fw-bold fs-2 mb-3">Produk</h3>
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h3 class="fw-bold fs-2 mb-2">
-                                Produk
-                            </h3>
                             <div>
-                                <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal"
-                                    data-bs-target="#modalTambahProduk"> Tambah Produk
+                                <p class="fw-normal mb-0">"Dan Dia telah memberikan kepadamu (keperluanmu) dan segala
+                                    apa yang kamu mohonkan kepadanya."</p>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal"
+                                    data-bs-target="#modalTambahProduk">+ Tambah Produk
                                 </button>
-                                <button type="button" class="btn btn-danger" data-bs-target="#modalHapusProduk"
-                                    data-id="<?php echo $row['id_pelanggan']; ?>">
-                                    Hapus
+                                <button type="button" class="btn btn-warning" data-bs-target="#modalTambahProduk"> Edit
                                 </button>
-                                
-                                <!-- </td>
-                                                            <td> -->
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditProduk" data-id="<?php echo $row['id_pelanggan']; ?>">
-                                    Edit
-                                </button>
+                            </div>
+
+                            <!-- Edit Status Order -->
+                            <div class="modal fade" id="modalEditStatus" tabindex="-1"
+                                aria-labelledby="modalEditStatusLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form id="formEditStatus" method="POST" action="../php/aksi_edit_status.php">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalEditStatusLabel">Edit Status Order</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Tutup"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <!-- Input untuk ID Order -->
+                                                <input type="hidden" id="id_detail" name="id_detail">
+                                                <div class="mb-3">
+                                                    <label for="status" class="form-label">Status Baru</label>
+                                                    <select class="form-select" id="status" name="status" required>
+                                                        <option value="Pending">Pending</option>
+                                                        <option value="Completed">Completed</option>
+                                                        <option value="Canceled">Canceled</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-success">Simpan Perubahan</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                        <p class="fw-normal pb-3">"Dan Dia telah memberikan kepadamu (keperluanmu) dan segala apa yang kamu mohonkan kepadanya."</p>
+
 
                         <!--Menghubungkan Database-->
                         <?php
@@ -324,51 +330,47 @@
                                                 <!-- Table Head Data Produk -->
                                                 <thead>
                                                     <tr class="highlight">
-                                                        <th>Nama</th>
+                                                        <th>Nama Produk</th>
                                                         <th>Harga</th>
+                                                        <th>Aksi</th>
                                                     </tr>
                                                 </thead>
 
-                                                <!--Data stock-->
+                                                <!--Data Produk-->
                                                 <thead>
                                                 </thead>
                                                 <tbody>
-                                                    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                                                    <!--Menghubungkan Database-->
+                                                    <?php
+                                                    $result = mysqli_query($conn, "
+                                                SELECT o.id_detail, o.status, pr.nama AS nama_produk, pr.harga
+                                                FROM order_detail o
+                                                JOIN produk pr ON o.id_produk = pr.id_produk
+                                                ");
+                                                    while ($row = mysqli_fetch_assoc($result)) { ?>
                                                         <tr>
-                                                            <td><?php echo $row['tanggal']; ?></td>
-                                                            <td><?php echo $row['nama_pelanggan']; ?></td>
                                                             <td><?php echo $row['nama_produk']; ?></td>
-                                                            <td><?php echo $row['jumlah']; ?></td>
-                                                            <td><?php echo $row['total']; ?></td>
-                                                            <td class="font-weight-medium">
-                                                                <div class="badge 
-                                                                    <?php 
-                                                                        if ($row['status'] == 'Pending') {
-                                                                            echo 'badge-warning';
-                                                                        } elseif ($row['status'] == 'Canceled') {
-                                                                            echo 'badge-danger';
-                                                                        } elseif ($row['status'] == 'Completed') {
-                                                                            echo 'badge-success';
-                                                                        }
-                                                                    ?>">
-                                                                    <?php echo $row['status']; ?>
-                                                                </div>
+                                                            <td>Rp <?php echo number_format($row['harga'], 0, ',', '.'); ?>
                                                             </td>
-                                                            <td><?php echo $row['via']; ?></td>
                                                             <td>
                                                                 <button type="button" class="btn btn-danger"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#modalHapusOrder"
+                                                                    data-bs-toggle="modal" data-bs-target="#modalHapusOrder"
                                                                     data-id="<?php echo $row['id_detail']; ?>">
                                                                     Hapus
-                                                                    </button>
-                                                                    <!-- 
-                                                                    <a href="../php/delete_order.php?id=<?php echo $row['id_detail']; ?>" class="btn btn-danger">Hapus</a>
-                                                                    -->
+                                                                </button>
+
+                                                                <script>
+                                                                    function setEditStatus(id, status) {
+                                                                        document.getElementById('id_detail').value = id;
+                                                                        document.getElementById('status').value = status;
+                                                                    }
+                                                                </script>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
                                                 </tbody>
+                                            </table>
+
                                             </table>
                                         </div>
                                     </div>
@@ -410,10 +412,13 @@
 
     <!--Buat chart dari scriptjs -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
     <script src="../script.js"></script>
     <!-- ionicon vendor buat icon -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>

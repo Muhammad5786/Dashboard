@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    
+
 
     <!--Pembungkus Class Wrapper dengan Display Flex-->
     <div class="wrapper">
@@ -26,8 +26,8 @@
             <!--Logo Icon Hamburger Sidebar-->
             <div class="d-flex justify-content-between p-4">
                 <div class="sidebar-logo">
-                    <a href="customer.php">
-                        <img src="/images/logodonat.png" alt="logo putih" class="logo-img">
+                    <a href="../index.php">
+                        <img src="../images/logodonat.png" alt="logo putih" class="logo-img">
                     </a>
                 </div>
                 <button class="toggle-btn border-0" type="button">
@@ -176,23 +176,23 @@
                             Customer
                         </h3>
                         <?php
-                            if (isset($_GET['error'])) {
-                                if ($_GET['error'] == 'nama_terpakai') {
-                                    echo "<div class='alert alert-danger'>Nama sudah digunakan, silakan gunakan nama lain.</div>";
-                                } elseif ($_GET['error'] == 'gagal_tambah') {
-                                    echo "<div class='alert alert-danger'>Gagal menambahkan data.</div>";
-                                }
+                        if (isset($_GET['error'])) {
+                            if ($_GET['error'] == 'nama_terpakai') {
+                                echo "<div class='alert alert-danger'>Nama sudah digunakan, silakan gunakan nama lain.</div>";
+                            } elseif ($_GET['error'] == 'gagal_tambah') {
+                                echo "<div class='alert alert-danger'>Gagal menambahkan data.</div>";
                             }
+                        }
 
-                            if (isset($_GET['success']) && $_GET['success'] == 'tambah_berhasil') {
-                                echo "<div class='alert alert-success'>Data berhasil ditambahkan.</div>";
-                            }
+                        if (isset($_GET['success']) && $_GET['success'] == 'tambah_berhasil') {
+                            echo "<div class='alert alert-success'>Data berhasil ditambahkan.</div>";
+                        }
                         ?>
                         <!--Menghubungkan Database-->
                         <?php
-                            include("../php/koneksi.php");
-                            $sql = "SELECT * FROM pelanggan";
-                            $result = mysqli_query($conn, $sql);
+                        include("../php/koneksi.php");
+                        $sql = "SELECT * FROM pelanggan";
+                        $result = mysqli_query($conn, $sql);
                         ?>
                         <div class="d-flex align-items-center justify-content-between btn-add-customer">
                             <div class="fw-normal my-3 quotes-customer">"Dan Dia memberinya rezeki dari arah yang tidak
@@ -205,7 +205,7 @@
                                 </button>
                             </div>
                             <!-- <div class=""> -->
-                                <!-- Tambah Data -->
+                            <!-- Tambah Data -->
                             <div class="modal fade" id="modalTambahCustomer" tabindex="-1"
                                 aria-labelledby="modalTambahCustomerLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -243,66 +243,66 @@
                             </div>
                             <!-- Modal Edit -->
                             <div class="modal fade" id="modalEditCustomer" tabindex="-1" aria-labelledby="modalEditCustomerLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
                                 <form id="formEditCustomer" method="POST" action="../php/aksi_edit_pelanggan.php">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="modalEditCustomerLabel">Edit Customer</h5>
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalEditCustomerLabel">Edit Customer</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
-                                    </div>
-                                    <div class="modal-body">
+                                            </div>
+                                            <div class="modal-body">
 
-                                    <!-- Input hidden untuk ID -->
-                                    <input type="hidden" id="id_pelanggan" name="id_pelanggan">
+                                                <!-- Input hidden untuk ID -->
+                                                <input type="hidden" id="id_pelanggan" name="id_pelanggan">
 
-                                    <div class="mb-3">
-                                        <label for="nama" class="form-label">Nama</label>
+                                                <div class="mb-3">
+                                                    <label for="nama" class="form-label">Nama</label>
                                         <input type="text" class="form-control" id="nama" name="nama" required>
-                                    </div>
+                                                </div>
 
-                                    <div class="mb-3">
-                                        <label for="no_hp" class="form-label">No HP</label>
+                                                <div class="mb-3">
+                                                    <label for="no_hp" class="form-label">No HP</label>
                                         <input type="text" class="form-control" id="no_hp" name="no_hp" required>
-                                    </div>
+                                                </div>
 
-                                    <div class="mb-3">
-                                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                                                <div class="mb-3">
+                                                    <label for="deskripsi" class="form-label">Deskripsi</label>
                                         <input type="text" class="form-control" id="deskripsi" name="deskripsi" required>
-                                    </div>
+                                                </div>
 
-                                    <div class="mb-3">
-                                        <label for="alamat" class="form-label">Alamat</label>
+                                                <div class="mb-3">
+                                                    <label for="alamat" class="form-label">Alamat</label>
                                         <input type="text" class="form-control" id="alamat" name="alamat" required>
-                                    </div>
+                                                </div>
 
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-success">Simpan</button>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="modal-footer">
-                                    <button type="submit" class="btn btn-success">Simpan</button>
-                                    </div>
-                                </form>
                                 </div>
-                            </div>
                             </div>
                             <div class="modal fade" id="modalHapusCustomer" tabindex="-1" aria-labelledby="modalHapusCustomerLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Konfirmasi Hapus</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Apakah Anda yakin ingin menghapus pelanggan?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <form method="GET" action="../php/delete_pelanggan.php">
-                                        <input type="hidden" name="id" id="idToDelete">
-                                        <button type="submit" class="btn btn-danger">Hapus</button>
-                                        </form>
-                                    </div>
+                                        </div>
+                                        <div class="modal-body">
+                                            Apakah Anda yakin ingin menghapus pelanggan?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form method="GET" action="../php/delete_pelanggan.php">
+                                                <input type="hidden" name="id" id="idToDelete">
+                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                           <!-- Modal Edit Pelanggan -->
+                            <!-- Modal Edit Pelanggan -->
                             <div class="modal fade" id="modalEditCustomer" tabindex="-1" aria-labelledby="modalEditCustomerLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -329,9 +329,9 @@
                                                     <input type="text" class="form-control" id="alamat" name="alamat" required>
                                                 </div>
                                             </div>
-                                                <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-success">Simpan</button>
-                                                </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-success">Simpan</button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -370,20 +370,20 @@
                                                             <td><?php echo $row['alamat']; ?></td>
                                                             <td><?php echo $row['deskripsi']; ?></td>
                                                             <td>
-                                                                <button type="button" class="btn btn-danger" 
-                                                                    data-bs-toggle="modal" 
+                                                                <button type="button" class="btn btn-danger"
+                                                                    data-bs-toggle="modal"
                                                                     data-bs-target="#modalHapusCustomer"
                                                                     data-id="<?php echo $row['id_pelanggan']; ?>">
                                                                     Hapus
                                                                 </button>
-                                                                <button type="button" class="btn btn-warning" 
-                                                                        data-bs-toggle="modal" 
-                                                                        data-bs-target="#modalEditCustomer"
-                                                                        data-id="<?php echo $row['id_pelanggan']; ?>"
-                                                                        data-nama="<?php echo $row['nama']; ?>"
-                                                                        data-no_hp="<?php echo $row['no_hp']; ?>"
-                                                                        data-deskripsi="<?php echo $row['deskripsi']; ?>"
-                                                                        data-alamat="<?php echo $row['alamat']; ?>">
+                                                                <button type="button" class="btn btn-warning"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#modalEditCustomer"
+                                                                    data-id="<?php echo $row['id_pelanggan']; ?>"
+                                                                    data-nama="<?php echo $row['nama']; ?>"
+                                                                    data-no_hp="<?php echo $row['no_hp']; ?>"
+                                                                    data-deskripsi="<?php echo $row['deskripsi']; ?>"
+                                                                    data-alamat="<?php echo $row['alamat']; ?>">
                                                                     Edit
                                                                 </button>
                                                             </td>
