@@ -252,8 +252,8 @@
                                 <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal"
                                     data-bs-target="#modalTambahProduk">+ Tambah Produk
                                 </button>
-                                <button type="button" class="btn btn-warning" data-bs-target="#modalTambahProduk"> Edit
-                                </button>
+                                <a href="p_bahan.php?" class="btn btn-warning btn-md">Edit</a>
+                                 
                             </div>
 
                             <!-- Edit Status Order -->
