@@ -82,16 +82,6 @@
         <div class="main">
             <!--Navbar-->
             <nav class="navbar navbar-expand px-4 py-3">
-                <!--Nabar samping Kiri: Form Input Navbar (Search)-->
-                <form action="#" class="d-none d-sm-inline-block">
-                    <div class="input-group input-group-navbar">
-                        <input type="text" class="form-control border-0 rounded pe-0"
-                            style="background-color:rgb(214, 214, 214);" placeholder="Search.." aria-label="Search">
-                        <button class="btn btn-rounded" type="button">
-                            <ion-icon name="search-outline"></ion-icon>
-                        </button>
-                    </div>
-                </form>
                 <!--Navbar samping Kanan: Notification dan Foto Profile-->
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ms-auto">
@@ -102,7 +92,7 @@
                         <!--Foto Profile-->
                         <li class="nav-item dropdown">
                             <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                <img src="../images/mybini.jpeg" class="avatar img-fluid rounded-circle"
+                                <img src="../images/mybini.jpeg" class="avatar img-fluid rounded-circle my-1"
                                     alt="user avatar">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
@@ -448,7 +438,6 @@
                 </div>
             </main>
 
-
             <!--Footer DashBoard-->
             <footer class="footer">
                 <div class="container-fluid">
@@ -461,13 +450,10 @@
                         <div class="col-6 text-end text-light d-none d-md-block">
                             <ul class="list-inline mb-0">
                                 <li class="list-inline-item">
-                                    <a href="#" class="text-light">Contact</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-light">About</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-light">Terms & Conditions</a>
+                                    <a href="https://dmimahdonuts.carrd.co/" class="text-light" target="_blank"
+                                        rel="noopener">
+                                        dmimahdonuts.carrd.co
+                                    </a>
                                 </li>
                             </ul>
                         </div>

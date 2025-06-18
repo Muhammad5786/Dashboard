@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,30 +9,9 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="../style.css">
-
-
-</head>
-<body>  <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Donat</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="../style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-
-
 </head>
 
 <body>
-    
-
     <!--Pembungkus Class Wrapper dengan Display Flex-->
     <div class="wrapper">
         <!--SideBar Web-->
@@ -40,7 +20,7 @@
             <div class="d-flex justify-content-between p-4">
                 <div class="sidebar-logo">
                     <a href="customer.php">
-                        <img src="/images/logodonat.png" alt="logo putih" class="logo-img">
+                        <img src="../images/logodonat.png" alt="logo putih" class="logo-img">
                     </a>
                 </div>
                 <button class="toggle-btn border-0" type="button">
@@ -144,16 +124,6 @@
         <div class="main">
             <!--Navbar-->
             <nav class="navbar navbar-expand px-4 py-3">
-                <!--Nabar samping Kiri: Form Input Navbar (Search)-->
-                <form action="#" class="d-none d-sm-inline-block">
-                    <div class="input-group input-group-navbar">
-                        <input type="text" class="form-control border-0 rounded pe-0"
-                            style="background-color:rgb(214, 214, 214);" placeholder="Search.." aria-label="Search">
-                        <button class="btn btn-rounded" type="button">
-                            <ion-icon name="search-outline"></ion-icon>
-                        </button>
-                    </div>
-                </form>
                 <!--Navbar samping Kanan: Notification dan Foto Profile-->
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ms-auto">
@@ -164,7 +134,8 @@
                         <!--Foto Profile-->
                         <li class="nav-item dropdown">
                             <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                <img src="../images/cha.jpeg" class="avatar img-fluid rounded-circle" alt="user avatar">
+                                <img src="../images/mybini.jpeg" class="avatar img-fluid rounded-circle my-1"
+                                    alt="user avatar">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
                                 <a href="#" class="dropdown-item">
@@ -189,23 +160,23 @@
                             Stock
                         </h3>
                         <?php
-                            if (isset($_GET['error'])) {
-                                if ($_GET['error'] == 'nama_terpakai') {
-                                    echo "<div class='alert alert-danger'>Nama sudah digunakan, silakan gunakan nama lain.</div>";
-                                } elseif ($_GET['error'] == 'gagal_tambah') {
-                                    echo "<div class='alert alert-danger'>Gagal menambahkan data.</div>";
-                                }
+                        if (isset($_GET['error'])) {
+                            if ($_GET['error'] == 'nama_terpakai') {
+                                echo "<div class='alert alert-danger'>Nama sudah digunakan, silakan gunakan nama lain.</div>";
+                            } elseif ($_GET['error'] == 'gagal_tambah') {
+                                echo "<div class='alert alert-danger'>Gagal menambahkan data.</div>";
                             }
+                        }
 
-                            if (isset($_GET['success']) && $_GET['success'] == 'tambah_berhasil') {
-                                echo "<div class='alert alert-success'>Data berhasil ditambahkan.</div>";
-                            }
+                        if (isset($_GET['success']) && $_GET['success'] == 'tambah_berhasil') {
+                            echo "<div class='alert alert-success'>Data berhasil ditambahkan.</div>";
+                        }
                         ?>
                         <!--Menghubungkan Database-->
                         <?php
-                            include("../php/koneksi.php");
-                            $sql = "SELECT * FROM pelanggan";
-                            $result = mysqli_query($conn, $sql);
+                        include("../php/koneksi.php");
+                        $sql = "SELECT * FROM pelanggan";
+                        $result = mysqli_query($conn, $sql);
                         ?>
                         <div class="d-flex align-items-center justify-content-between btn-add-stock">
                             <div class="fw-normal my-3 quotes-stock">"Dan Dia memberinya rezeki dari arah yang tidak
@@ -216,54 +187,55 @@
                                     data-bs-target="#modalTambahStock">
                                     <i class="bx bx-plus"></i> Tambah Stock
                                 </button>
-                                                <button type="button" class="btn btn-danger" 
-                                                    data-bs-toggle="modal" 
-                                                    data-bs-target="#modalHapusStock"
-                                                    data-id="<?php echo $row['id_pelanggan']; ?>">
-                                                    Hapus
-                                                </button>
-                                                            <!-- </td>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#modalHapusStock" data-id="<?php echo $row['id_pelanggan']; ?>">
+                                    Hapus
+                                </button>
+                                <!-- </td>
                                                             <td> -->
-                                                <button type="button" class="btn btn-warning" 
-                                                    data-bs-toggle="modal" 
-                                                    data-bs-target="#modalEditStock"
-                                                    data-id="<?php echo $row['id_pelanggan']; ?>">
-                                                    Edit
-                                                </button>
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                    data-bs-target="#modalEditStock" data-id="<?php echo $row['id_pelanggan']; ?>">
+                                    Edit
+                                </button>
                             </div>
                             <!-- <div class=""> -->
                             <div class="modal fade" id="modalTambahStock" tabindex="-1"
                                 aria-labelledby="modalTambahStockLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <form id="formTambahStock" method="POST" action="../php/aksi_simpan_pelanggan.php">
+                                        <form id="formTambahStock" method="POST"
+                                            action="../php/aksi_simpan_pelanggan.php">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="tambahStockLabel">Tambah Stock</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Tutup"></button>
-                                                    
+
                                             </div>
 
                                             </td>
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <label for="nama" class="form-label">Nama</label>
-                                                    <input type="text" class="form-control" id="nama" name="nama" required>
+                                                    <input type="text" class="form-control" id="nama" name="nama"
+                                                        required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="jumlah" class="form-label">Jumlah</label>
-                                                    <input type="number" class="form-control" id="jumlah" name="jumlah" required>
+                                                    <input type="number" class="form-control" id="jumlah" name="jumlah"
+                                                        required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="harga" class="form-label">Harga</label>
-                                                    <input type="number" class="form-control" id="harga" name="deskripsi" required>
+                                                    <input type="number" class="form-control" id="harga"
+                                                        name="deskripsi" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="satuan_beli" class="form-label">Satuan Beli</label>
-                                                    <input type="number" class="form-control" id="satuan_beli" name="alamat" required>
+                                                    <input type="number" class="form-control" id="satuan_beli"
+                                                        name="alamat" required>
                                                 </div>
-                                
-                                                
+
+
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="submit" class="btn btn-success">Simpan</button>
@@ -272,62 +244,70 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal fade" id="modalHapusStock" tabindex="-1" aria-labelledby="modalHapusStockLabel" aria-hidden="true">
+                            <div class="modal fade" id="modalHapusStock" tabindex="-1"
+                                aria-labelledby="modalHapusStockLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Konfirmasi Hapus</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Tutup"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Apakah Anda yakin ingin menghapus pelanggan?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form method="GET" action="../php/delete_pelanggan.php">
+                                                <input type="hidden" name="id" id="idToDelete">
+                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <div class="modal-body">
-                                        Apakah Anda yakin ingin menghapus pelanggan?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <form method="GET" action="../php/delete_pelanggan.php">
-                                        <input type="hidden" name="id" id="idToDelete">
-                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                </div>
+                            </div>
+                            <!-- Modal Edit Pelanggan -->
+                            <div class="modal fade" id="modalEditStock" tabindex="-1"
+                                aria-labelledby="modalEditStockLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form id="formEditStock" method="POST" action="../php/aksi_edit_pelanggan.php">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalEditStockLabel">Edit Stock</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Tutup"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="nama_bahan" class="form-label">Nama Bahan</label>
+                                                    <input type="text" class="form-control" id="nama" name="nama_bahan"
+                                                        required>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="jumlah" class="form-label">Jumlah</label>
+                                                    <input type="number" class="form-control" id="jumlah" name="jumlah"
+                                                        required>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="harga" class="form-label">Harga</label>
+                                                    <input type="number" class="form-control" id="harga" name="harga"
+                                                        required>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="satuan_beli" class="form-label">Satuan Beli</label>
+                                                    <input type="number" class="form-control" id="satuan_beli"
+                                                        name="satuan_beli" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-success">Simpan</button>
+                                            </div>
                                         </form>
                                     </div>
-                                    </div>
                                 </div>
-                            </div>
-                           <!-- Modal Edit Pelanggan -->
-                            <div class="modal fade" id="modalEditStock" tabindex="-1" aria-labelledby="modalEditStockLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                <form id="formEditStock" method="POST" action="../php/aksi_edit_pelanggan.php">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="modalEditStockLabel">Edit Stock</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="mb-3">
-                                            <label for="nama_bahan" class="form-label">Nama Bahan</label>
-                                            <input type="text" class="form-control" id="nama" name="nama_bahan" required>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="jumlah" class="form-label">Jumlah</label>
-                                            <input type="number" class="form-control" id="jumlah" name="jumlah" required>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="harga" class="form-label">Harga</label>
-                                            <input type="number" class="form-control" id="harga" name="harga" required>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="satuan_beli" class="form-label">Satuan Beli</label>
-                                            <input type="number" class="form-control" id="satuan_beli" name="satuan_beli" required>
-                                        </div>
-                                        </div>
-
-                                        <div class="modal-footer">
-                                        <button type="submit" class="btn btn-success">Simpan</button>
-                                    </div>
-                                </form>
-                                </div>
-                            </div>
                             </div>
                             <!-- </div> -->
                         </div>
@@ -341,7 +321,7 @@
                                                 <!--Table Head Customer-->
                                                 <thead>
                                                     <tr class="highlight">
-                                                        
+
                                                         <th>Nama Bahan</th>
                                                         <th>Jumlah</th>
                                                         <th>Harga</th>
@@ -359,7 +339,7 @@
                                                             <td><?php echo $row['no_hp']; ?></td>
                                                             <td><?php echo $row['alamat']; ?></td>
                                                             <td><?php echo $row['deskripsi']; ?></td>
-                                                            
+
 
                                                         </tr>
                                                     <?php } ?>
@@ -387,13 +367,10 @@
                         <div class="col-6 text-end text-light d-none d-md-block">
                             <ul class="list-inline mb-0">
                                 <li class="list-inline-item">
-                                    <a href="#" class="text-light">Contact</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-light">About</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-light">Terms & Conditions</a>
+                                    <a href="https://dmimahdonuts.carrd.co/" class="text-light" target="_blank"
+                                        rel="noopener">
+                                        dmimahdonuts.carrd.co
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -427,4 +404,5 @@
     <!-- Script JS kamu sendiri -->
     <script src="../script.js"></script>
 </body>
+
 </html>

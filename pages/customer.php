@@ -129,16 +129,6 @@
         <div class="main">
             <!--Navbar-->
             <nav class="navbar navbar-expand px-4 py-3">
-                <!--Nabar samping Kiri: Form Input Navbar (Search)-->
-                <form action="#" class="d-none d-sm-inline-block">
-                    <div class="input-group input-group-navbar">
-                        <input type="text" class="form-control border-0 rounded pe-0"
-                            style="background-color:rgb(214, 214, 214);" placeholder="Search.." aria-label="Search">
-                        <button class="btn btn-rounded" type="button">
-                            <ion-icon name="search-outline"></ion-icon>
-                        </button>
-                    </div>
-                </form>
                 <!--Navbar samping Kanan: Notification dan Foto Profile-->
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ms-auto">
@@ -149,7 +139,8 @@
                         <!--Foto Profile-->
                         <li class="nav-item dropdown">
                             <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                <img src="../images/cha.jpeg" class="avatar img-fluid rounded-circle" alt="user avatar">
+                                <img src="../images/mybini.jpeg" class="avatar img-fluid rounded-circle my-1"
+                                    alt="user avatar">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
                                 <a href="#" class="dropdown-item">
@@ -208,7 +199,8 @@
                                 aria-labelledby="modalTambahCustomerLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <form id="formTambahCustomer" method="POST" action="../php/aksi_simpan_pelanggan.php">
+                                        <form id="formTambahCustomer" method="POST"
+                                            action="../php/aksi_simpan_pelanggan.php">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="tambahCustomerLabel">Tambah customer</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -217,19 +209,23 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <label for="nama" class="form-label">Nama</label>
-                                                    <input type="text" class="form-control" id="nama" name="nama" required>
+                                                    <input type="text" class="form-control" id="nama" name="nama"
+                                                        required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="no_id" class="form-label">No HP</label>
-                                                    <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                                                    <input type="text" class="form-control" id="no_hp" name="no_hp"
+                                                        required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="deskripsi" class="form-label">Deskripsi</label>
-                                                    <input type="text" class="form-control" id="deskripsi" name="deskripsi" required>
+                                                    <input type="text" class="form-control" id="deskripsi"
+                                                        name="deskripsi" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="alamat" class="form-label">Alamat</label>
-                                                    <input type="text" class="form-control" id="alamat" name="alamat" required>
+                                                    <input type="text" class="form-control" id="alamat" name="alamat"
+                                                        required>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -240,13 +236,16 @@
                                 </div>
                             </div>
                             <!-- Modal Edit -->
-                            <div class="modal fade" id="modalEditCustomer" tabindex="-1" aria-labelledby="modalEditCustomerLabel" aria-hidden="true">
+                            <div class="modal fade" id="modalEditCustomer" tabindex="-1"
+                                aria-labelledby="modalEditCustomerLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                <form id="formEditCustomer" method="POST" action="../php/aksi_edit_pelanggan.php">
+                                        <form id="formEditCustomer" method="POST"
+                                            action="../php/aksi_edit_pelanggan.php">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="modalEditCustomerLabel">Edit Customer</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Tutup"></button>
                                             </div>
                                             <div class="modal-body">
 
@@ -255,22 +254,26 @@
 
                                                 <div class="mb-3">
                                                     <label for="nama" class="form-label">Nama</label>
-                                        <input type="text" class="form-control" id="nama" name="nama" required>
+                                                    <input type="text" class="form-control" id="nama" name="nama"
+                                                        required>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label for="no_hp" class="form-label">No HP</label>
-                                        <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                                                    <input type="text" class="form-control" id="no_hp" name="no_hp"
+                                                        required>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label for="deskripsi" class="form-label">Deskripsi</label>
-                                        <input type="text" class="form-control" id="deskripsi" name="deskripsi" required>
+                                                    <input type="text" class="form-control" id="deskripsi"
+                                                        name="deskripsi" required>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label for="alamat" class="form-label">Alamat</label>
-                                        <input type="text" class="form-control" id="alamat" name="alamat" required>
+                                                    <input type="text" class="form-control" id="alamat" name="alamat"
+                                                        required>
                                                 </div>
 
                                             </div>
@@ -281,12 +284,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal fade" id="modalHapusCustomer" tabindex="-1" aria-labelledby="modalHapusCustomerLabel" aria-hidden="true">
+                            <div class="modal fade" id="modalHapusCustomer" tabindex="-1"
+                                aria-labelledby="modalHapusCustomerLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title">Konfirmasi Hapus</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Tutup"></button>
                                         </div>
                                         <div class="modal-body">
                                             Apakah Anda yakin ingin menghapus pelanggan?
@@ -301,30 +306,37 @@
                                 </div>
                             </div>
                             <!-- Modal Edit Pelanggan -->
-                            <div class="modal fade" id="modalEditCustomer" tabindex="-1" aria-labelledby="modalEditCustomerLabel" aria-hidden="true">
+                            <div class="modal fade" id="modalEditCustomer" tabindex="-1"
+                                aria-labelledby="modalEditCustomerLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <form id="formEditCustomer" method="POST" action="../php/aksi_edit_pelanggan.php">
+                                        <form id="formEditCustomer" method="POST"
+                                            action="../php/aksi_edit_pelanggan.php">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="modalEditCustomerLabel">Edit Customer</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Tutup"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <label for="nama" class="form-label">Nama</label>
-                                                    <input type="text" class="form-control" id="nama" name="nama" required>
+                                                    <input type="text" class="form-control" id="nama" name="nama"
+                                                        required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="no_hp" class="form-label">No HP</label>
-                                                    <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                                                    <input type="text" class="form-control" id="no_hp" name="no_hp"
+                                                        required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="deskripsi" class="form-label">Deskripsi</label>
-                                                    <input type="text" class="form-control" id="deskripsi" name="deskripsi" required>
+                                                    <input type="text" class="form-control" id="deskripsi"
+                                                        name="deskripsi" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="alamat" class="form-label">Alamat</label>
-                                                    <input type="text" class="form-control" id="alamat" name="alamat" required>
+                                                    <input type="text" class="form-control" id="alamat" name="alamat"
+                                                        required>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -410,13 +422,10 @@
                         <div class="col-6 text-end text-light d-none d-md-block">
                             <ul class="list-inline mb-0">
                                 <li class="list-inline-item">
-                                    <a href="#" class="text-light">Contact</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-light">About</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-light">Terms & Conditions</a>
+                                    <a href="https://dmimahdonuts.carrd.co/" class="text-light" target="_blank"
+                                        rel="noopener">
+                                        dmimahdonuts.carrd.co
+                                    </a>
                                 </li>
                             </ul>
                         </div>
