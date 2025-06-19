@@ -187,12 +187,6 @@
                                     data-bs-target="#modalTambahStock">
                                     <i class="bx bx-plus"></i> Tambah Stock
                                 </button>
-                                <!-- </td>
-                                                            <td> -->
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditStock" data-id="<?php echo $row['id_stok']; ?>">
-                                    Edit
-                                </button>
                             </div>
                             <!-- <div class=""> -->
                             <div class="modal fade" id="modalTambahStock" tabindex="-1"
@@ -393,6 +387,30 @@
         </div>
     </div>
 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const modalEditStok = document.getElementById('modalEditStok');
+
+    modalEditStok.addEventListener('show.bs.modal', function (event) {
+      const button = event.relatedTarget;
+
+      // Ambil data dari atribut
+      const idStok = button.getAttribute('data-id_stok') || '';
+      const nama = button.getAttribute('data-nama') || '';
+      const jumlah = button.getAttribute('data-jumlah') || '';
+      const harga = button.getAttribute('data-harga') || '';
+      const satuanBeli = button.getAttribute('data-satuan_beli') || '';
+
+      // Set ke input
+      modalEditStok.querySelector('#id_stok').value = idStok;
+      modalEditStok.querySelector('#nama_stok').value = nama;
+      modalEditStok.querySelector('#jumlah_stok').value = jumlah;
+      modalEditStok.querySelector('#harga_stok').value = harga;
+      modalEditStok.querySelector('#satuan_beli_stok').value = satuanBeli;
+    });
+  });
+    </script>
     <!-- jQuery harus sebelum DataTables -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 

@@ -25,15 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         inputHidden.value = idStok;
     });
 
-document.addEventListener('DOMContentLoaded', function () {
-  var hapusModal = document.getElementById('modalHapusOrder');
-  hapusModal.addEventListener('show.bs.modal', function (event) {
-    var button = event.relatedTarget;
-    var id = button.getAttribute('data-id');
-    var input = document.getElementById('orderIdToDelete');
-    input.value = id;
-  });
-});
+
 
 document.addEventListener('DOMContentLoaded', function () {
   var modal = document.getElementById('modalEditStatus');
@@ -92,43 +84,4 @@ fetch('php/get_chart_data.php') // Ganti path jika perlu
     });
   });
 
-const modal = document.getElementById('modalEditCustomer');
-modal.addEventListener('show.bs.modal', function (event) {
-  const button = event.relatedTarget;
 
-  // Ambil data dari tombol
-  const id = button.getAttribute('data-id');
-  const nama = button.getAttribute('data-nama');
-  const noHp = button.getAttribute('data-no_hp');
-  const deskripsi = button.getAttribute('data-deskripsi');
-  const alamat = button.getAttribute('data-alamat');
-
-  // Set data ke form modal
-  modal.querySelector('#id_pelanggan').value = id;
-  modal.querySelector('#nama').value = nama;
-  modal.querySelector('#no_hp').value = noHp;
-  modal.querySelector('#deskripsi').value = deskripsi;
-  modal.querySelector('#alamat').value = alamat;
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    const modalEditStok = document.getElementById('modalEditStok');
-
-    modalEditStok.addEventListener('show.bs.modal', function (event) {
-      const button = event.relatedTarget;
-
-      // Ambil data dari atribut
-      const idStok = button.getAttribute('data-id_stok') || '';
-      const nama = button.getAttribute('data-nama') || '';
-      const jumlah = button.getAttribute('data-jumlah') || '';
-      const harga = button.getAttribute('data-harga') || '';
-      const satuanBeli = button.getAttribute('data-satuan_beli') || '';
-
-      // Set ke input
-      modalEditStok.querySelector('#id_stok').value = idStok;
-      modalEditStok.querySelector('#nama_stok').value = nama;
-      modalEditStok.querySelector('#jumlah_stok').value = jumlah;
-      modalEditStok.querySelector('#harga_stok').value = harga;
-      modalEditStok.querySelector('#satuan_beli_stok').value = satuanBeli;
-    });
-  });

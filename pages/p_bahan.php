@@ -14,6 +14,8 @@
 </head>
 
 <body>
+
+
     <!--Pembungkus Class Wrapper dengan Display Flex-->
     <div class="wrapper">
         <!--SideBar Web-->
@@ -143,8 +145,8 @@
                                                 <!-- Table Head Data Produk -->
                                                 <thead>
                                                     <tr class="highlight">
-                                                        <th>Bahan</th>
                                                         <th>Produk</th>
+                                                        <th>Stok</th>
                                                         <th>Stok</th>
                                                         <th>Kebutuhan</th>
                                                     </tr>

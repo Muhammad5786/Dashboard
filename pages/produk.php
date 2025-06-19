@@ -190,7 +190,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
                         </div>
 
-                        <form action="produk_tambah.php" method="POST">
+                        <form action="../php/aksi_simpan_produk.php" method="POST">
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="nama_produk" class="form-label">Nama Produk</label>
@@ -215,26 +215,29 @@
             </div>
 
             <!-- Modal Hapus Order -->
-            <div class="modal fade" id="modalHapusOrder" tabindex="-1" aria-labelledby="modalHapusOrderLabel"
+            <!-- Modal Hapus Produk -->
+            <div class="modal fade" id="modalHapusProduk" tabindex="-1" aria-labelledby="modalHapusProdukLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Konfirmasi Hapus Order</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
-                        </div>
-                        <div class="modal-body">
-                            Apakah Anda yakin ingin menghapus Produk ini?
-                        </div>
-                        <div class="modal-footer">
-                            <form method="GET" action="../php/delete_order.php">
-                                <input type="hidden" name="id" id="orderIdToDelete">
+                        <form method="POST" action="../php/delete_produk.php">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalHapusProdukLabel">Konfirmasi Hapus Produk</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Tutup"></button>
+                            </div>
+                            <div class="modal-body">
+                                Apakah Anda yakin ingin menghapus produk ini?
+                                <input type="hidden" name="id_produk" id="produkIdToDelete">
+                            </div>
+                            <div class="modal-footer">
                                 <button type="submit" class="btn btn-danger">Hapus</button>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
+
 
 
 
@@ -252,59 +255,14 @@
                                 <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal"
                                     data-bs-target="#modalTambahProduk">+ Tambah Produk
                                 </button>
-                                <a href="p_bahan.php?" class="btn btn-warning btn-md">Edit</a>
-                                 
-                            </div>
 
-                            <!-- Edit Status Order -->
-                            <div class="modal fade" id="modalEditStatus" tabindex="-1"
-                                aria-labelledby="modalEditStatusLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <form id="formEditStatus" method="POST" action="../php/aksi_edit_status.php">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="modalEditStatusLabel">Edit Status Order</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Tutup"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <!-- Input untuk ID Order -->
-                                                <input type="hidden" id="id_detail" name="id_detail">
-                                                <div class="mb-3">
-                                                    <label for="status" class="form-label">Status Baru</label>
-                                                    <select class="form-select" id="status" name="status" required>
-                                                        <option value="Pending">Pending</option>
-                                                        <option value="Completed">Completed</option>
-                                                        <option value="Canceled">Canceled</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-success">Simpan Perubahan</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
 
                         <!--Menghubungkan Database-->
                         <?php
-                        $sql = "SELECT 
-                                order_detail.id_detail,
-                                order_detail.tanggal,
-                                order_detail.jumlah,
-                                order_detail.total,
-                                order_detail.tanggal,
-                                order_detail.status,
-                                order_detail.via,
-                                produk.nama AS nama_produk,
-                                pelanggan.nama AS nama_pelanggan
-                                FROM order_detail
-                                JOIN pelanggan ON order_detail.id_pelanggan = pelanggan.id_pelanggan
-                                JOIN produk ON order_detail.id_produk = produk.id_produk
-                                ORDER BY order_detail.tanggal DESC;";
+                        $sql = "SELECT * FROM produk;";
                         $result = mysqli_query($conn, $sql);
                         ?>
 
@@ -330,29 +288,21 @@
                                                 <tbody>
                                                     <!--Menghubungkan Database-->
                                                     <?php
-                                                    $result = mysqli_query($conn, "
-                                                SELECT o.id_detail, o.status, pr.nama AS nama_produk, pr.harga
-                                                FROM order_detail o
-                                                JOIN produk pr ON o.id_produk = pr.id_produk
-                                                ");
                                                     while ($row = mysqli_fetch_assoc($result)) { ?>
                                                         <tr>
-                                                            <td><?php echo $row['nama_produk']; ?></td>
+                                                            <td><?php echo $row['nama']; ?></td>
                                                             <td>Rp <?php echo number_format($row['harga'], 0, ',', '.'); ?>
                                                             </td>
                                                             <td>
-                                                                <button type="button" class="btn btn-danger"
-                                                                    data-bs-toggle="modal" data-bs-target="#modalHapusOrder"
-                                                                    data-id="<?php echo $row['id_detail']; ?>">
+                                                                <button class="btn btn-danger btn-md" data-bs-toggle="modal"
+                                                                    data-bs-target="#modalHapusProduk"
+                                                                    data-id="<?php echo $row['id_produk']; ?>">
                                                                     Hapus
                                                                 </button>
-
-                                                                <script>
-                                                                    function setEditStatus(id, status) {
-                                                                        document.getElementById('id_detail').value = id;
-                                                                        document.getElementById('status').value = status;
-                                                                    }
-                                                                </script>
+                                                                <a href="p_bahan.php?id_produk=<?php echo $row['id_produk']; ?>"
+                                                                    class="btn btn-warning btn-md">
+                                                                    Edit
+                                                                </a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
@@ -394,6 +344,18 @@
         </div>
     </div>
 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var modal = document.getElementById('modalHapusProduk');
+            modal.addEventListener('show.bs.modal', function (event) {
+                var button = event.relatedTarget;
+                var id = button.getAttribute('data-id');
+                document.getElementById('produkIdToDelete').value = id;
+            });
+        });
+    </script>
+
     <!-- jQuery harus sebelum DataTables -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
@@ -402,8 +364,8 @@
     <script>
         $(document).ready(function () {
             $('#tabelProduk').DataTable({
-                pageLength: 5, 
-                lengthMenu: [5, 10, 25, 50] 
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50]
             });
         });
     </script>

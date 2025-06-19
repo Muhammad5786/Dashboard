@@ -264,10 +264,11 @@
                             Apakah Anda yakin ingin menghapus order ini?
                         </div>
                         <div class="modal-footer">
-                            <form method="GET" action="../php/delete_order.php">
-                                <input type="hidden" name="id" id="orderIdToDelete">
-                                <button type="submit" class="btn btn-danger">Hapus</button>
-                            </form>
+                            <form method="POST" action="../php/delete_order.php">
+    <input type="hidden" name="id_order" id="orderIdToDelete">
+    <button type="submit" class="btn btn-danger">Hapus</button>
+</form>
+
                         </div>
                     </div>
                 </div>
@@ -445,6 +446,19 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    var hapusModal = document.getElementById('modalHapusOrder');
+    hapusModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        var id = button.getAttribute('data-id');
+        var input = document.getElementById('orderIdToDelete');
+        input.value = id;
+        console.log("ID yang akan dihapus:", id); // Debug
+    });
+});
+
+    </script>
     <!-- jQuery harus sebelum DataTables -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
