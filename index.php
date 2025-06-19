@@ -179,13 +179,6 @@ if (!isset($_SESSION['username'])) {
                                             <div class="card-body">
                                                 <p class="mb-3 ms-2 fw-bold">Order hari ini</p>
                                                 <h2 class="mb-2 ms-2 fw-bold"><?php echo $order_today; ?></h2>
-                                                <span class="badge text-success">
-                                                    <?php include 'php/dashboard.php'; ?>%
-                                                    <ion-icon name="arrow-up-outline"></ion-icon>
-                                                </span>
-                                                <span>
-                                                    Dari Bulan Ini
-                                                </span>
                                             </div>
                                         </div>
                                     </div>

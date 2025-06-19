@@ -369,6 +369,7 @@
                                                         <th>NO HP</th>
                                                         <th>Alamat</th>
                                                         <th>Deskripsi</th>
+                                                        <th>Tanggal Bergabung</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
@@ -383,6 +384,7 @@
                                                             <td><?php echo $row['no_hp']; ?></td>
                                                             <td><?php echo $row['alamat']; ?></td>
                                                             <td><?php echo $row['deskripsi']; ?></td>
+                                                            <td><?php echo $row['tanggal_bergabung']; ?></td>
                                                             <td>
                                                                 <button type="button" class="btn btn-danger"
                                                                     data-bs-toggle="modal"

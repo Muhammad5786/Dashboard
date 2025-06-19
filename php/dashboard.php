@@ -48,20 +48,29 @@ if ($jumlah_bulan_lalu > 0) {
 
 echo number_format($persentase, 2); // misal "23.45"
 
-// Hitung rata-rata order harian bulan lalu
-$result_bulan_lalu = mysqli_query($conn, "
-    SELECT COUNT(*)/DAY(LAST_DAY(DATE_SUB(CURDATE(), INTERVAL 1 MONTH))) as rata_rata 
+// Total order bulan ini
+$result_bulan_ini = mysqli_query($conn, "
+    SELECT COUNT(*) as total 
     FROM order_detail 
-    WHERE MONTH(tanggal) = MONTH(CURDATE() - INTERVAL 1 MONTH)
+    WHERE MONTH(tanggal) = MONTH(CURDATE()) 
     AND YEAR(tanggal) = YEAR(CURDATE())
 ");
-$rata_bulan_lalu = mysqli_fetch_assoc($result_bulan_lalu)['rata_rata'] ?? 1;
+$total_bulan_ini = mysqli_fetch_assoc($result_bulan_ini)['total'] ?? 0;
 
-// Hitung kenaikan
-if ($rata_bulan_lalu > 0) {
-    $persen_kenaikan = round((($order_today - $rata_bulan_lalu) / $rata_bulan_lalu) * 100, 2);
+// Total order bulan lalu
+$result_bulan_lalu = mysqli_query($conn, "
+    SELECT COUNT(*) as total 
+    FROM order_detail 
+    WHERE MONTH(tanggal) = MONTH(CURDATE() - INTERVAL 1 MONTH) 
+    AND YEAR(tanggal) = YEAR(CURDATE())
+");
+$total_bulan_lalu = mysqli_fetch_assoc($result_bulan_lalu)['total'] ?? 0;
+
+// Hitung kenaikan (dalam persen)
+if ($total_bulan_lalu > 0) {
+    $persen_kenaikan = round((($total_bulan_ini - $total_bulan_lalu) / $total_bulan_lalu) * 100, 2);
 } else {
-    $persen_kenaikan = 100; // atau 0, tergantung logika yang kamu inginkan
+    $persen_kenaikan = $total_bulan_ini > 0 ? 100 : 0; // Jika bulan lalu 0, dan bulan ini ada, kenaikan 100%, kalau dua-duanya nol, 0%
 }
 
 // Omzet bulan ini
