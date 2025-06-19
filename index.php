@@ -94,11 +94,7 @@
                             <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
                                 <a href="#" class="dropdown-item">
                                     <ion-icon name="layers-outline"></ion-icon>
-                                    <span>Analytics</span>
-                                </a>
-                                <a href="#" class="dropdown-item">
-                                    <ion-icon name="layers-outline"></ion-icon>
-                                    <span>Setting</span>
+                                    <span>LOGOUT</span>
                                 </a>
                             </div>
                         </li>
