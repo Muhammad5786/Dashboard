@@ -117,26 +117,77 @@
                 <div class="container-fluid">
                     <div class="mb-3">
                         <h3 class="fw-bold fs-2 mb-3">Bahan Produk</h3>
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <!-- Edit Status Order -->
-                            <div class="modal fade" id="modalEditStatus" tabindex="-1"
-                                aria-labelledby="modalEditStatusLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <form id="formEditStatus" method="POST" action="../php/aksi_edit_status.php">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="modalEditStatusLabel">Edit Status Order</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Tutup"></button>
+                        <div class="d-flex align-items-center justify-content-between btn-add-customer">
+                            <div class="fw-normal my-3 quotes-customer">"Dan Dia memberinya rezeki dari arah yang tidak
+                                disangka-sangkanya."
+                                (65:3)
+                            </div>
+                            <div class="d-flex">
+                                <div>
+                                    <button class="btn btn-warning me-2" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditProdukBahan">
+                                        <i class="bx bx-plus"></i> Edit Bahan Produk
+                                    </button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-danger me-2" data-bs-toggle="modal"
+                                        data-bs-target="#modalHapusProdukBahan">
+                                        <i class="bx bx-plus"></i> Hapus Bahan Produk
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal fade" id="modalEditProdukBahan" tabindex="-1"
+                            aria-labelledby="modalEditProdukBahanLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form id="formProdukBahan" method="POST" action="../php/aksi_simpan_pelanggan.php">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editProdukBahanLabel">Edit Produk bahan</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Tutup"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <label for="nama" class="form-label">Nama Produk Bahan</label>
+                                                <input type="text" class="form-control" id="nama" name="nama">
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-success">Simpan Perubahan</button>
+                                            <div class="mb-3">
+                                                <label for="kebutuhan" class="form-label">Kebutuhan</label>
+                                                <input type="number" class="form-control" id="kebutuhan"
+                                                    name="kebutuhan">
                                             </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success">Simpan</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="modalHapusProdukBahan" tabindex="-1"
+                            aria-labelledby="modalHapusProdukBahanLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Tutup"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Apakah Anda yakin ingin menghapus Produk Bahan?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form method="GET" action="../php/delete_pelanggan.php">
+                                            <input type="hidden" name="id" id="idToDelete">
+                                            <button type="submit" class="btn btn-danger">Hapus</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="table-responsive">
                             <div class="col-md-20 grid-margin stretch-card">
                                 <div class="card">
