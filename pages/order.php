@@ -9,6 +9,8 @@
     <title>Dashboard Donat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://leaverou.github.io/awesomplete/awesomplete.css" />
+    <script src="https://leaverou.github.io/awesomplete/awesomplete.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="../style.css">
 
@@ -127,9 +129,9 @@
                                     <input type="date" class="form-control" id="tanggal" name="tanggal" required>
                                 </div>
 
-                                <div class="mb-3">
+                                <div class="mb-3 d-flex flex-column">
                                     <label for="nama" class="form-label">Nama Customer</label>
-                                    <input type="text" class="form-control" id="nama" name="nama_pelanggan"
+                                    <input type="text" class="form-control awesomplete" id="nama" name="nama_pelanggan"
                                         list="listPelanggan" required>
                                     <!-- Pelanggan -->
                                     <datalist id="listPelanggan">
