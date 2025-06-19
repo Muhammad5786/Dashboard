@@ -175,7 +175,7 @@
                         <!--Menghubungkan Database-->
                         <?php
                         include("../php/koneksi.php");
-                        $sql = "SELECT * FROM pelanggan";
+                        $sql = "SELECT * FROM stok";
                         $result = mysqli_query($conn, $sql);
                         ?>
                         <div class="d-flex align-items-center justify-content-between btn-add-stock">
@@ -187,14 +187,10 @@
                                     data-bs-target="#modalTambahStock">
                                     <i class="bx bx-plus"></i> Tambah Stock
                                 </button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modalHapusStock" data-id="<?php echo $row['id_pelanggan']; ?>">
-                                    Hapus
-                                </button>
                                 <!-- </td>
                                                             <td> -->
                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditStock" data-id="<?php echo $row['id_pelanggan']; ?>">
+                                    data-bs-target="#modalEditStock" data-id="<?php echo $row['id_stok']; ?>">
                                     Edit
                                 </button>
                             </div>
@@ -203,15 +199,12 @@
                                 aria-labelledby="modalTambahStockLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <form id="formTambahStock" method="POST"
-                                            action="../php/aksi_simpan_pelanggan.php">
+                                        <form id="formTambahStock" method="POST" action="../php/aksi_simpan_stok.php">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="tambahStockLabel">Tambah Stock</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Tutup"></button>
-
                                             </div>
-
                                             </td>
                                             <div class="modal-body">
                                                 <div class="mb-3">
@@ -226,16 +219,14 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="harga" class="form-label">Harga</label>
-                                                    <input type="number" class="form-control" id="harga"
-                                                        name="deskripsi" required>
+                                                    <input type="number" class="form-control" id="harga" name="harga"
+                                                        required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="satuan_beli" class="form-label">Satuan Beli</label>
                                                     <input type="number" class="form-control" id="satuan_beli"
-                                                        name="alamat" required>
+                                                        name="satuan_beli" required>
                                                 </div>
-
-
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="submit" class="btn btn-success">Simpan</button>
@@ -254,54 +245,58 @@
                                                 aria-label="Tutup"></button>
                                         </div>
                                         <div class="modal-body">
-                                            Apakah Anda yakin ingin menghapus pelanggan?
+                                            Apakah Anda yakin ingin menghapus stok ini?
                                         </div>
                                         <div class="modal-footer">
-                                            <form method="GET" action="../php/delete_pelanggan.php">
-                                                <input type="hidden" name="id" id="idToDelete">
+                                            <form method="GET" action="../php/delete_stok.php">
+                                                <input type="hidden" name="id_stok" id="hapus-id-stok">
                                                 <button type="submit" class="btn btn-danger">Hapus</button>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Modal Edit Pelanggan -->
-                            <div class="modal fade" id="modalEditStock" tabindex="-1"
-                                aria-labelledby="modalEditStockLabel" aria-hidden="true">
+
+                            <!-- Modal Edit Stok -->
+                            <div class="modal fade" id="modalEditStok" tabindex="-1"
+                                aria-labelledby="modalEditStokLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <form id="formEditStock" method="POST" action="../php/aksi_edit_pelanggan.php">
+                                        <form id="formEditStok" method="POST" action="../php/aksi_edit_stok.php">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="modalEditStockLabel">Edit Stock</h5>
+                                                <h5 class="modal-title" id="modalEditStokLabel">Edit Stok</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Tutup"></button>
                                             </div>
                                             <div class="modal-body">
+
+                                                <input type="hidden" id="id_stok" name="id_stok">
+
                                                 <div class="mb-3">
-                                                    <label for="nama_bahan" class="form-label">Nama Bahan</label>
-                                                    <input type="text" class="form-control" id="nama" name="nama_bahan"
+                                                    <label for="nama_stok" class="form-label">Nama</label>
+                                                    <input type="text" class="form-control" id="nama_stok" name="nama"
                                                         required>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="jumlah" class="form-label">Jumlah</label>
-                                                    <input type="number" class="form-control" id="jumlah" name="jumlah"
-                                                        required>
+                                                    <label for="jumlah_stok" class="form-label">Jumlah</label>
+                                                    <input type="number" class="form-control" id="jumlah_stok"
+                                                        name="jumlah" required>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="harga" class="form-label">Harga</label>
-                                                    <input type="number" class="form-control" id="harga" name="harga"
-                                                        required>
+                                                    <label for="harga_stok" class="form-label">Harga</label>
+                                                    <input type="number" class="form-control" id="harga_stok"
+                                                        name="harga" required>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="satuan_beli" class="form-label">Satuan Beli</label>
-                                                    <input type="number" class="form-control" id="satuan_beli"
+                                                    <label for="satuan_beli_stok" class="form-label">Satuan Beli</label>
+                                                    <input type="text" class="form-control" id="satuan_beli_stok"
                                                         name="satuan_beli" required>
                                                 </div>
-                                            </div>
 
+                                            </div>
                                             <div class="modal-footer">
                                                 <button type="submit" class="btn btn-success">Simpan</button>
                                             </div>
@@ -309,6 +304,8 @@
                                     </div>
                                 </div>
                             </div>
+
+
                             <!-- </div> -->
                         </div>
                         <div class="table-responsive">
@@ -326,6 +323,7 @@
                                                         <th>Jumlah</th>
                                                         <th>Harga</th>
                                                         <th>Satuan Beli</th>
+                                                        <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <!--Data stock-->
@@ -334,16 +332,31 @@
                                                 <tbody>
                                                     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                                                         <tr>
-                                                            <!-- <td><?php echo $row['id']; ?></td> -->
+                                                            <!-- <td><?php echo $row['id_stok']; ?></td> -->
                                                             <td><?php echo $row['nama']; ?></td>
-                                                            <td><?php echo $row['no_hp']; ?></td>
-                                                            <td><?php echo $row['alamat']; ?></td>
-                                                            <td><?php echo $row['deskripsi']; ?></td>
+                                                            <td><?php echo $row['jumlah']; ?></td>
+                                                            <td><?php echo $row['harga']; ?></td>
+                                                            <td><?php echo $row['satuan_beli']; ?></td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-danger"
+                                                                    data-bs-toggle="modal" data-bs-target="#modalHapusStock"
+                                                                    data-id="<?php echo $row['id_stok']; ?>">
+                                                                    Hapus
+                                                                </button>
+                                                                <button type="button" class="btn btn-warning"
+                                                                    data-bs-toggle="modal" data-bs-target="#modalEditStok"
+                                                                    data-id_stok="<?= $row['id_stok']; ?>"
+                                                                    data-nama="<?= htmlspecialchars($row['nama']); ?>"
+                                                                    data-jumlah="<?= $row['jumlah']; ?>"
+                                                                    data-harga="<?= $row['harga']; ?>"
+                                                                    data-satuan_beli="<?= (string) $row['satuan_beli']; ?>">
+                                                                    Edit
+                                                                </button>
 
 
+                                                            </td>
                                                         </tr>
                                                     <?php } ?>
-
                                                 </tbody>
                                             </table>
                                         </div>
@@ -388,8 +401,8 @@
     <script>
         $(document).ready(function () {
             $('#tabelStok').DataTable({
-                pageLength: 5, 
-                lengthMenu: [5, 10, 25, 50] 
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50]
             });
         });
     </script>
