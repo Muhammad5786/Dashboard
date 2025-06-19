@@ -92,9 +92,13 @@
                                     alt="user avatar">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
-                                <a href="pages/login.php" class="dropdown-item">
-                                    <ion-icon name="layers-outline"></ion-icon>
-                                    <span>LOGOUT</span>
+                                <a href="php/logout.php" class="dropdown-item">
+                                    <ion-icon name="log-out-outline"></ion-icon>
+                                    <span>Logout</span>
+                                </a>
+                                <a href="pages/register.php" class="dropdown-item">
+                                    <ion-icon name="log-out-outline"></ion-icon>
+                                    <span>Register</span>
                                 </a>
                             </div>
                         </li>

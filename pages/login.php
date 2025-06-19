@@ -10,7 +10,7 @@
 
   <div class="login-container">
         <h1>LOGIN</h1>
-        <form action="/login" method="POST">
+        <form action="../php/login.php" method="POST">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required />
@@ -18,13 +18,6 @@
         <div class="form-group">
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required />
-        </div>
-        <div class="forgot">
-            <div>
-              <input type="checkbox" name="remember" id="remember" class="inline"> 
-              <label for="remember" class="inline">Remember Me</label>
-            </div>
-            <a href="#">Forgot Password?</a>
         </div>
         <button type="submit">Login</button>
         </form>
