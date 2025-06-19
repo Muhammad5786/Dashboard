@@ -111,12 +111,67 @@
                     </ul>
                 </div>
             </nav>
+            <!-- Konek Database -->
+            <?php
+            include '../php/koneksi.php';
 
+            $id_produk = $_GET['id_produk'] ?? null;
+            $nama_produk = '';
+            $hasil_bahan = [];
+
+            if ($id_produk) {
+                // Ambil nama produk
+                $stmt = $conn->prepare("SELECT nama FROM produk WHERE id_produk = ?");
+                $stmt->bind_param("i", $id_produk);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $nama_produk = $result->fetch_assoc()['nama'] ?? '(Tidak ditemukan)';
+
+                // Ambil bahan-bahan yang digunakan oleh produk ini
+                $query = $conn->prepare("
+                    SELECT 
+                        stok.id_stok,
+                        produk.id_produk,
+                        produk.nama AS nama_produk,
+                        stok.nama AS nama_bahan,
+                        produk_bahan.jumlah_dibutuhkan
+                    FROM produk_bahan
+                    JOIN produk ON produk_bahan.id_produk = produk.id_produk
+                    JOIN stok ON produk_bahan.id_stok = stok.id_stok
+                    WHERE produk.id_produk = ?
+                ");
+                $query->bind_param("i", $id_produk);
+                $query->execute();
+                $hasil_bahan = $query->get_result();
+            } else {
+                echo "<p class='text-danger'>ID Produk tidak ditemukan.</p>";
+            }
+            ?>
+
+
+            <?php
+            $id_produk = $_GET['id_produk'] ?? null;
+            $nama_produk = '';
+
+            if ($id_produk) {
+                $stmt = $conn->prepare("SELECT nama FROM produk WHERE id_produk = ?");
+                $stmt->bind_param("i", $id_produk);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                if ($row = $result->fetch_assoc()) {
+                    $nama_produk = $row['nama'];
+                } else {
+                    $nama_produk = '(Produk tidak ditemukan)';
+                }
+            } else {
+                $nama_produk = '(ID produk tidak diberikan)';
+            }
+            ?>
             <!--Menu Produk-->
             <main class="content px-3 py-4">
                 <div class="container-fluid">
                     <div class="mb-3">
-                        <h3 class="fw-bold fs-2 mb-3">Bahan Produk</h3>
+                        <h3 class="fw-bold fs-2 mb-3">Bahan untuk Produk: <?= htmlspecialchars($nama_produk); ?></h3>
                         <div class="d-flex align-items-center justify-content-between btn-add-customer">
                             <div class="fw-normal my-3 quotes-customer">"Dan Dia memberinya rezeki dari arah yang tidak
                                 disangka-sangkanya."
@@ -124,17 +179,13 @@
                             </div>
                             <div class="d-flex">
                                 <div>
-                                    <button class="btn btn-warning me-2" data-bs-toggle="modal"
+                                    <button class="btn btn-primary me-2" data-bs-toggle="modal"
                                         data-bs-target="#modalEditProdukBahan">
-                                        <i class="bx bx-plus"></i> Edit Bahan Produk
+                                        <i class="bx bx-plus"></i> Tambah Bahan
                                     </button>
+                                    <a href="produk.php" class="btn btn-secondary me-2">Kembali</a>
                                 </div>
-                                <div>
-                                    <button class="btn btn-danger me-2" data-bs-toggle="modal"
-                                        data-bs-target="#modalHapusProdukBahan">
-                                        <i class="bx bx-plus"></i> Hapus Bahan Produk
-                                    </button>
-                                </div>
+
                             </div>
 
                         </div>
@@ -142,21 +193,33 @@
                             aria-labelledby="modalEditProdukBahanLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <form id="formProdukBahan" method="POST" action="../php/aksi_simpan_pelanggan.php">
+                                    <form id="formProdukBahan" method="POST" action="../php/aksi_simpan_bahan.php">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="editProdukBahanLabel">Edit Produk bahan</h5>
+                                            <h5 class="modal-title" id="editProdukBahanLabel">Tambah Bahan untuk Produk
+                                            </h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Tutup"></button>
                                         </div>
                                         <div class="modal-body">
+                                            <input type="hidden" name="id_produk" value="<?= $id_produk ?>">
+
                                             <div class="mb-3">
-                                                <label for="nama" class="form-label">Nama Produk Bahan</label>
-                                                <input type="text" class="form-control" id="nama" name="nama">
+                                                <label for="id_stok" class="form-label">Nama Bahan</label>
+                                                <select class="form-select" id="id_stok" name="id_stok" required>
+                                                    <option value="">-- Pilih Bahan --</option>
+                                                    <?php
+                                                    $q = mysqli_query($conn, "SELECT id_stok, nama FROM stok");
+                                                    while ($s = mysqli_fetch_assoc($q)) {
+                                                        echo '<option value="' . $s['id_stok'] . '">' . htmlspecialchars($s['nama']) . '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
                                             </div>
+
                                             <div class="mb-3">
-                                                <label for="kebutuhan" class="form-label">Kebutuhan</label>
+                                                <label for="kebutuhan" class="form-label">Jumlah Dibutuhkan</label>
                                                 <input type="number" class="form-control" id="kebutuhan"
-                                                    name="kebutuhan">
+                                                    name="jumlah_dibutuhkan" required>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -166,6 +229,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="modal fade" id="modalHapusProdukBahan" tabindex="-1"
                             aria-labelledby="modalHapusProdukBahanLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -179,41 +243,71 @@
                                         Apakah Anda yakin ingin menghapus Produk Bahan?
                                     </div>
                                     <div class="modal-footer">
-                                        <form method="GET" action="../php/delete_pelanggan.php">
+                                        <form method="GET" action="../php/delete_produk_bahan.php">
                                             <input type="hidden" name="id" id="idToDelete">
+                                            <input type="hidden" name="id_produk" value="<?= $id_produk ?>">
                                             <button type="submit" class="btn btn-danger">Hapus</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="table-responsive">
                             <div class="col-md-20 grid-margin stretch-card">
                                 <div class="card">
                                     <div class="card-body">
                                         <!--Table Laporan list Produk Terlaris-->
                                         <div class="table-responsive rounded">
-                                            <table id="tabelProduk" class="table table-striped table-borderless py-4">
-                                                <!-- Table Head Data Produk -->
-                                                <thead>
-                                                    <tr class="highlight">
-                                                        <th>Produk</th>
-                                                        <th>Stok</th>
-                                                        <th>Stok</th>
-                                                        <th>Kebutuhan</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>ISI</td>
-                                                        <td>ISI</td>
-                                                        <td>ISI</td>
-                                                        <td>ISI</td>
-                                                    </tr>
-                                                </tbody>
-
-                                            </table>
+                                            <form action="../php/aksi_edit_bahan.php" method="POST">
+                                                <input type="hidden" name="id_produk" value="<?= $id_produk ?>">
+                                                <?php if ($hasil_bahan && $hasil_bahan->num_rows > 0): ?>
+                                                    <table id="tabelProduk"
+                                                        class="table table-striped table-borderless py-4">
+                                                        <!-- Table Head Data Produk -->
+                                                        <thead>
+                                                            <tr class="highlight">
+                                                                <th>No</th>
+                                                                <th>Nama Bahan</th>
+                                                                <th>Jumlah Dibutuhkan</th>
+                                                                <th>Aksi</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php $no = 1;
+                                                            while ($row = $hasil_bahan->fetch_assoc()): ?>
+                                                                <tr>
+                                                                    <td><?= $no++ ?></td>
+                                                                    <td><?= htmlspecialchars($row['nama_bahan']) ?>
+                                                                        <input type="hidden" name="id_stok[]"
+                                                                            value="<?= $row['id_stok'] ?>">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="number" class="form-control"
+                                                                            name="jumlah_dibutuhkan[]"
+                                                                            value="<?= $row['jumlah_dibutuhkan'] ?>" required>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div>
+                                                                            <button type="button" class="btn btn-danger me-2"
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#modalHapusProdukBahan"
+                                                                                data-id="<?= $row['id_stok'] ?>">
+                                                                                <i class="bx bx-trash"></i> Hapus
+                                                                            </button>
+                                                                            <button type="submit" name="edit[]"
+                                                                                value="<?= $row['id_stok'] ?>"
+                                                                                class="btn btn-success me-2">Simpan</button>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            <?php endwhile; ?>
+                                                        </tbody>
+                                                    </table>
+                                                <?php else: ?>
+                                                    <p class="text-muted">Belum ada bahan untuk produk ini.</p>
+                                                <?php endif; ?>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -247,6 +341,17 @@
             </footer>
         </div>
     </div>
+
+    <script>
+        const modalHapus = document.getElementById('modalHapusProdukBahan');
+        modalHapus.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const id = button.getAttribute('data-id');
+
+            const inputHidden = modalHapus.querySelector('#idToDelete');
+            inputHidden.value = id;
+        });
+    </script>
 
     <!-- jQuery harus sebelum DataTables -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
