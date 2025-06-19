@@ -71,7 +71,7 @@ if (!isset($_SESSION['username'])) {
                 </li>
             </ul>
             <div class="sidebar-footer mb-3">
-                <a href="#" class="sidebar-link d-flex align-items-center gap-2">
+                <a href="php/logout.php" class="sidebar-link d-flex align-items-center gap-2">
                     <ion-icon name="log-out-outline"></ion-icon>
                     <span>Logout</span>
                 </a>
