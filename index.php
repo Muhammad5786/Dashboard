@@ -92,7 +92,7 @@
                                     alt="user avatar">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
-                                <a href="#" class="dropdown-item">
+                                <a href="pages/login.php" class="dropdown-item">
                                     <ion-icon name="layers-outline"></ion-icon>
                                     <span>LOGOUT</span>
                                 </a>
@@ -112,10 +112,10 @@
                         </h3>
                         <div hidden>\
                             <?php
-                        include("php/dashboard.php");
-                        ?>
+                            include("php/dashboard.php");
+                            ?>
                         </div>
-                    
+
                         <!--TagLine Website-->
                         <p class="fw-normal pb-3">"Dan Dia memberinya rezeki dari arah yang tidak disangka-sangkanya."
                             (65:3)</p>
