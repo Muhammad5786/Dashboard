@@ -149,21 +149,15 @@
                                     <div class="mb-3">
                                         <!-- <label for="status" class="form-label">Status Baru</label> -->
                                         <select class="form-select" id="select-pesanan" name="nama_produk" required>
-                                            <option value="Brownis">Brownis</option>
-                                            <option value="Roll Cake">Roll Cake</option>
-                                            <option value="Donat">Donat</option>
+                                            <?php
+                                            $sqlProduk = "SELECT nama FROM produk";
+                                            $resultProduk = mysqli_query($conn, $sqlProduk);
+                                            while ($row = mysqli_fetch_assoc($resultProduk)) {
+                                                echo "<option value='" . htmlspecialchars($row['nama'], ENT_QUOTES) . "'>" . $row['nama'] . "</option>";
+                                            }
+                                            ?>
                                         </select>
                                     </div>
-                                    <!-- Produk -->
-                                    <datalist id="listProduk">
-                                        <?php
-                                        $sql = "SELECT DISTINCT nama FROM produk";
-                                        $result = mysqli_query($conn, $sql);
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            echo "<option value='" . $row['nama'] . "'>";
-                                        }
-                                        ?>
-                                    </datalist>
                                 </div>
 
                                 <div class="mb-3">
@@ -189,17 +183,17 @@
                                         <div class="d-flex">
                                             <div class="w-50">
                                                 <div class="form-check py-2">
-                                                    <input class="form-check-input" type="checkbox" value="Glaze Coklat"
+                                                    <input class="form-check-input" type="checkbox" value="Glaze Coklat" name="topping[]"
                                                         id="check1">
                                                     <label class="form-check-label" for="check1">Glaze Coklat</label>
                                                 </div>
                                                 <div class="form-check py-2">
-                                                    <input class="form-check-input" type="checkbox" value="Glaze Putih"
+                                                    <input class="form-check-input" type="checkbox" value="Glaze Putih" name="topping[]"
                                                         id="check2">
                                                     <label class="form-check-label" for="check2">Glaze Putih</label>
                                                 </div>
                                                 <div class="form-check py-2">
-                                                    <input class="form-check-input" type="checkbox" value="Meiss Tulip"
+                                                    <input class="form-check-input" type="checkbox" value="Meiss Tulip" name="topping[]"
                                                         id="check3">
                                                     <label class="form-check-label" for="check3">Meiss
                                                         Tulip</label>
@@ -208,18 +202,18 @@
 
                                             <div class="w-50">
                                                 <div class="form-check py-2">
-                                                    <input class="form-check-input" type="checkbox" value="Kacang Oven"
+                                                    <input class="form-check-input" type="checkbox" value="Kacang Oven" name="topping[]"
                                                         id="check4">
                                                     <label class="form-check-label" for="check4">Kacang
                                                         Oven</label>
                                                 </div>
                                                 <div class="form-check py-2">
-                                                    <input class="form-check-input" type="checkbox" value="Almond"
+                                                    <input class="form-check-input" type="checkbox" value="Almond" name="topping[]"
                                                         id="check5">
                                                     <label class="form-check-label" for="check5">Almond</label>
                                                 </div>
                                                 <div class="form-check py-2">
-                                                    <input class="form-check-input" type="checkbox" value="Chocochip"
+                                                    <input class="form-check-input" type="checkbox" value="Chocochip" name="topping[]"
                                                         id="check6">
                                                     <label class="form-check-label" for="check6">Chocochip</label>
                                                 </div>
@@ -227,12 +221,12 @@
 
                                             <div class="w-50">
                                                 <div class="form-check py-2">
-                                                    <input class="form-check-input" type="checkbox" value="Keju"
+                                                    <input class="form-check-input" type="checkbox" value="Keju" name="topping[]"
                                                         id="check7">
                                                     <label class="form-check-label" for="check7">Keju</label>
                                                 </div>
                                                 <div class="form-check py-2">
-                                                    <input class="form-check-input" type="checkbox" value="Kacang Mete"
+                                                    <input class="form-check-input" type="checkbox" value="Kacang Mete" name="topping[]"
                                                         id="check8">
                                                     <label class="form-check-label" for="check8">Kacang Mete</label>
                                                 </div>
@@ -267,9 +261,9 @@
                         </div>
                         <div class="modal-footer">
                             <form method="POST" action="../php/delete_order.php">
-    <input type="hidden" name="id_order" id="orderIdToDelete">
-    <button type="submit" class="btn btn-danger">Hapus</button>
-</form>
+                                <input type="hidden" name="id_order" id="orderIdToDelete">
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                            </form>
 
                         </div>
                     </div>
@@ -450,15 +444,15 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-    var hapusModal = document.getElementById('modalHapusOrder');
-    hapusModal.addEventListener('show.bs.modal', function (event) {
-        var button = event.relatedTarget;
-        var id = button.getAttribute('data-id');
-        var input = document.getElementById('orderIdToDelete');
-        input.value = id;
-        console.log("ID yang akan dihapus:", id); // Debug
-    });
-});
+            var hapusModal = document.getElementById('modalHapusOrder');
+            hapusModal.addEventListener('show.bs.modal', function (event) {
+                var button = event.relatedTarget;
+                var id = button.getAttribute('data-id');
+                var input = document.getElementById('orderIdToDelete');
+                input.value = id;
+                console.log("ID yang akan dihapus:", id); // Debug
+            });
+        });
 
     </script>
     <!-- jQuery harus sebelum DataTables -->
@@ -469,8 +463,8 @@
     <script>
         $(document).ready(function () {
             $('#tabelOrder').DataTable({
-                pageLength: 5, 
-                lengthMenu: [5, 10, 25, 50] 
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50]
             });
         });
     </script>
