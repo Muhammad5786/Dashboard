@@ -107,8 +107,8 @@ if (!isset($_SESSION['username'])) {
                                     <span>Logout</span>
                                 </a>
                                 <a href="pages/register.php" class="dropdown-item">
-                                    <ion-icon name="log-out-outline"></ion-icon>
-                                    <span>Register</span>
+                                    <ion-icon name="log-in-outline"></ion-icon>
+                                     <span>Register</span>
                                 </a>
                             </div>
                         </li>
@@ -124,7 +124,7 @@ if (!isset($_SESSION['username'])) {
                         <h3 class="fw-bold fs-2 mb-2">
                             Selamat datang, (Nama)!
                         </h3>
-                        <div hidden>\
+                        <div hidden>
                             <?php
                             include("php/dashboard.php");
                             ?>
@@ -314,6 +314,42 @@ if (!isset($_SESSION['username'])) {
         </div>
     </div>
 
+    <script>
+        //Bar chart
+        fetch('php/get_chart_data.php') // Ganti path jika perlu
+            .then(response => response.json())
+            .then(data => {
+                const ctx = document.getElementById('bar-chart-grouped').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Jumlah Terjual',
+                            data: data.values,
+                            backgroundColor: "rgb(150, 17, 98)",
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1,
+                            borderRadius: 5
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    stepSize: 10
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+
+
+
+    </script>
     <!--Buat chart dari scriptjs -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
